@@ -22,11 +22,21 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-serif: var(--font-serif), Georgia, serif;
-  --font-display: var(--font-serif), Georgia, serif;
+
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-syne: var(--font-syne), sans-serif;
+  --font-display: var(--font-syne), sans-serif;
   --font-body: var(--font-hanken), var(--font-geist-sans), sans-serif;
   --font-sans: var(--font-hanken), var(--font-geist-sans), sans-serif;
   --font-mono: var(--font-jetbrains), var(--font-geist-mono), monospace;
+}
+
+.font-syne {
+  font-family: var(--font-syne), sans-serif;
+}
+
+.font-serif-cormorant {
+  font-family: var(--font-cormorant), Georgia, serif;
 }
 
 html {
@@ -80,3 +90,99 @@ body {
     linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
 }
 
+/* Better page transitions and selection */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Accessible keyboard focus */
+:focus-visible {
+  outline: 2px solid #c9c5bb;
+  outline-offset: 4px;
+}
+
+/* Premium image hover */
+.image-hover {
+  overflow: hidden;
+}
+
+.image-hover img {
+  transition: transform 700ms cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+.image-hover:hover img {
+  transform: scale(1.04);
+}
+
+/* Reusable glass effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+/* Watermark giant typography stroke */
+.text-stroke-watermark {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.08);
+  color: transparent;
+  transition: -webkit-text-stroke 0.4s ease, color 0.4s ease;
+}
+
+.text-stroke-watermark:hover {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.02);
+}
+
+/* Isometric card perspective */
+.isometric-stage {
+  perspective: 1200px;
+}
+
+.isometric-card {
+  transform: rotateX(16deg) rotateY(-18deg) rotateZ(6deg);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
+}
+
+.isometric-card:hover {
+  transform: rotateX(8deg) rotateY(-8deg) rotateZ(2deg) translateY(-8px);
+}
+
+/* Subtle star shimmer animation */
+@keyframes starFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+.animate-star-float {
+  animation: starFloat 6s ease-in-out infinite;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .isometric-card {
+    transform: none !important;
+  }
+  .animate-star-float {
+    animation: none !important;
+  }
+}

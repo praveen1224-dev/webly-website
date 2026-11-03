@@ -10,7 +10,7 @@ import {
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
-  variable: "--font-serif",
+  variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
@@ -51,15 +51,50 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WEBLY — Bespoke Web Atelier | Ideas into Digital Reality",
+  metadataBase: new URL("https://webly.studio"),
+  title: "WEBLY — Modern Web Design & Development Studio | Digital Atelier",
   description:
-    "Bespoke web development for visionary individuals, unforgettable celebrations, and modern enterprises. Timeless digital experiences built with architectural discipline.",
+    "WEBLY crafts bespoke websites for visionary individuals, milestone celebrations, and modern businesses. Tailored digital experiences engineered with architectural precision and lean code.",
+  keywords: [
+    "web design studio",
+    "freelance web developer",
+    "wedding invitation website",
+    "personal portfolio website",
+    "business website design",
+    "ecommerce website development",
+    "bespoke web development",
+    "WEBLY studio",
+    "Chennai web studio",
+  ],
+  authors: [{ name: "WEBLY Studio" }],
+  creator: "WEBLY",
+  openGraph: {
+    title: "WEBLY — Modern Web Design & Development Studio",
+    description:
+      "Crafting bespoke digital experiences with architectural discipline and timeless precision.",
+    url: "https://webly.studio",
+    siteName: "WEBLY",
+    images: [
+      {
+        url: "/webly-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "WEBLY — Ideas into Digital Reality",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
   icons: {
     icon: "/favicon.ico",
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
