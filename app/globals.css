@@ -1,188 +1,506 @@
 @import "tailwindcss";
 
-:root {
-  --background: #060608;
-  --foreground: #f4f4f5;
-  --surface-low: #0e0e11;
-  --surface-card: #151518;
-  --surface-high: #1e1e23;
-  --hairline: rgba(255, 255, 255, 0.08);
-  --hairline-strong: rgba(255, 255, 255, 0.16);
-  --hairline-hover: rgba(255, 255, 255, 0.28);
+@theme {
+  --color-surface: #fff9ee;
+  --color-surface-dim: #dfd9d0;
+  --color-surface-bright: #fff9ee;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f9f3e9;
+  --color-surface-container: #f3ede3;
+  --color-surface-container-high: #ede7de;
+  --color-surface-container-highest: #e8e2d8;
+  --color-surface-variant: #e8e2d8;
+  --color-on-surface: #1d1b16;
+  --color-on-surface-variant: #44474d;
+  --color-inverse-surface: #33302a;
+  --color-inverse-on-surface: #f6f0e6;
+  --color-outline: #75777e;
+  --color-outline-variant: #c5c6cd;
+  --color-surface-tint: #525f77;
+  --color-background: #fff9ee;
+  --color-on-background: #1d1b16;
 
-  /* Ivory / Editorial Light Palette */
-  --ivory-bg: #f7f6f2;
-  --ivory-card: #ffffff;
-  --ivory-text: #121214;
-  --ivory-muted: #5c5b66;
-  --ivory-border: rgba(0, 0, 0, 0.08);
-  --ivory-border-strong: rgba(0, 0, 0, 0.16);
+  --color-primary: #020e24;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #17243a;
+  --color-on-primary-container: #7e8ba6;
+  --color-inverse-primary: #bac7e4;
+  --color-primary-fixed: #d6e3ff;
+  --color-primary-fixed-dim: #bac7e4;
+  --color-on-primary-fixed: #0e1c31;
+  --color-on-primary-fixed-variant: #3a475f;
+
+  --color-secondary: #003ee3;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #315bff;
+  --color-on-secondary-container: #efefff;
+  --color-secondary-fixed: #dde1ff;
+  --color-secondary-fixed-dim: #b9c3ff;
+  --color-on-secondary-fixed: #001257;
+  --color-on-secondary-fixed-variant: #0034c0;
+
+  --color-tertiary: #200700;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #3b1b0b;
+  --color-on-tertiary-container: #b27f69;
+  --color-tertiary-fixed: #ffdbcc;
+  --color-tertiary-fixed-dim: #f3baa1;
+  --color-on-tertiary-fixed: #311304;
+  --color-on-tertiary-fixed-variant: #653d2a;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Custom WEBLY Vibrant Creative Studio Palette */
+  --color-cream: #fff9ee;
+  --color-cream-stitch: #f6f0e6;
+  --color-navy: #17243a;
+  --color-cobalt: #315bff;
+  --color-peach: #f2b9a0;
+  --color-lavender: #dcd9f5;
+  --color-coral: #f08075;
+  --color-butter: #f6d77a;
+  --color-mint: #bfe5d2;
+  --color-dark-ink: #202020;
+
+  --font-syne: var(--font-syne), "Syne", sans-serif;
+  --font-sans: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff9ee;
+    color: #1d1b16;
+    font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
 
-  --font-serif: var(--font-cormorant), Georgia, serif;
-  --font-syne: var(--font-syne), sans-serif;
-  --font-display: var(--font-syne), sans-serif;
-  --font-body: var(--font-hanken), var(--font-geist-sans), sans-serif;
-  --font-sans: var(--font-hanken), var(--font-geist-sans), sans-serif;
-  --font-mono: var(--font-jetbrains), var(--font-geist-mono), monospace;
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
 }
 
-.font-syne {
-  font-family: var(--font-syne), sans-serif;
-}
-
-.font-serif-cormorant {
-  font-family: var(--font-cormorant), Georgia, serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: #060608;
-  color: #f4f4f5;
-  font-family: var(--font-body), sans-serif;
-  overflow-x: hidden;
-}
-
-::selection {
-  background-color: #121214;
-  color: #ffffff;
-}
-
-.theme-ivory ::selection {
-  background-color: #121214;
-  color: #ffffff;
-}
-
-/* Chrome Shimmer and Metallic Gradients */
-.chrome-gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 50%, #9ca3af 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.chrome-border {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.chrome-border-hover:hover {
-  border-color: rgba(255, 255, 255, 0.22);
-}
-
-/* Subtle architectural grid pattern */
-.bg-grid-hairline {
-  background-size: 64px 64px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-}
-
-.bg-grid-ivory {
-  background-size: 64px 64px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
-}
-
-/* Better page transitions and selection */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-body {
-  min-height: 100vh;
+/* Material Symbols icon helper */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
-/* Accessible keyboard focus */
-:focus-visible {
-  outline: 2px solid #c9c5bb;
-  outline-offset: 4px;
+/* Safe areas */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
-/* Premium image hover */
-.image-hover {
-  overflow: hidden;
+/* Custom Stitch Spacing Classes */
+.px-margin {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}
+.px-margin-mobile {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 390px) {
+  .px-margin-mobile {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+.px-gutter-mobile {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.gap-gutter {
+  gap: 1.5rem;
+}
+.gap-space-xs {
+  gap: 0.25rem;
+}
+.gap-space-sm {
+  gap: 0.5rem;
+}
+.gap-space-md {
+  gap: 1rem;
+}
+.gap-space-lg {
+  gap: 1.75rem;
+}
+.gap-space-xl {
+  gap: 3rem;
+}
+.py-space-md {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.py-space-lg {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+.py-space-xl {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.pb-space-lg {
+  padding-bottom: 1.75rem;
+}
+.pt-space-xl {
+  padding-top: 3rem;
 }
 
-.image-hover img {
-  transition: transform 700ms cubic-bezier(0.2, 0.65, 0.3, 1);
+/* Stitch Typography Classes */
+.font-headline-xl {
+  font-family: var(--font-syne), "Syne", sans-serif;
+  font-size: clamp(28px, 8.5vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  overflow-wrap: break-word;
+}
+@media (min-width: 640px) {
+  .font-headline-xl {
+    font-size: clamp(40px, 6.5vw, 60px);
+  }
+}
+@media (min-width: 1024px) {
+  .font-headline-xl {
+    font-size: 84px;
+    line-height: 92px;
+    letter-spacing: -0.04em;
+  }
 }
 
-.image-hover:hover img {
-  transform: scale(1.04);
+.font-headline-lg {
+  font-family: var(--font-syne), "Syne", sans-serif;
+  font-size: clamp(24px, 6.5vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+@media (min-width: 1024px) {
+  .font-headline-lg {
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: -0.03em;
+  }
 }
 
-/* Reusable glass effect */
-.glass-effect {
-  background: rgba(255, 255, 255, 0.035);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+.font-headline-md {
+  font-family: var(--font-syne), "Syne", sans-serif;
+  font-size: clamp(20px, 5.5vw, 26px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+@media (min-width: 1024px) {
+  .font-headline-md {
+    font-size: 38px;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+  }
 }
 
-/* Watermark giant typography stroke */
-.text-stroke-watermark {
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.08);
-  color: transparent;
-  transition: -webkit-text-stroke 0.4s ease, color 0.4s ease;
+.font-headline-sm {
+  font-family: var(--font-syne), "Syne", sans-serif;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
-.text-stroke-watermark:hover {
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.02);
+.font-body-xl {
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+@media (min-width: 1024px) {
+  .font-body-xl {
+    font-size: 20px;
+    line-height: 32px;
+  }
 }
 
-/* Isometric card perspective */
-.isometric-stage {
-  perspective: 1200px;
+.font-body-lg {
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: 17px;
+  line-height: 28px;
+  font-weight: 400;
 }
 
-.isometric-card {
-  transform: rotateX(16deg) rotateY(-18deg) rotateZ(6deg);
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
+.font-body-md {
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
 }
 
-.isometric-card:hover {
-  transform: rotateX(8deg) rotateY(-8deg) rotateZ(2deg) translateY(-8px);
+.font-label-lg {
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+  font-weight: 600;
 }
 
-/* Subtle star shimmer animation */
-@keyframes starFloat {
+.font-label-md {
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.font-label-sm {
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+/* Hide scrollbars where specified */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================================================
+   WEBLY Logo Intro Keyframe Animations
+   Hardware-accelerated CSS animations running directly on the compositor thread.
+   Guarantees smooth playback and self-completing fade-out even if JS is delayed.
+   ========================================================================== */
+@keyframes weblyOverlayFade {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  78% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+  95% {
+    opacity: 0;
+    visibility: visible;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes weblyLogoReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.95);
+  }
+  18% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  82% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+@keyframes weblyTaglineReveal {
+  0%, 30% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  46% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  82% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes weblySheenSweep {
+  0%, 25% {
+    transform: translateX(-120%) skewX(-20deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.45;
+  }
+  75%, 100% {
+    transform: translateX(250%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes weblyStaticFade {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* Creative Studio Motion Utilities */
+@keyframes floatSlow {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-8px) rotate(3deg);
+    transform: translateY(-8px) rotate(1.5deg);
   }
 }
 
-.animate-star-float {
-  animation: starFloat 6s ease-in-out infinite;
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-1.5deg);
+  }
 }
 
-/* Reduced motion accessibility */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.06);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 24s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Signature WEBLY Studio Graphic Patterns
+   ========================================================================== */
+
+/* Architectural Fine Grid */
+.pattern-fine-grid {
+  background-image: 
+    linear-gradient(to right, rgba(23, 36, 58, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 36, 58, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.pattern-fine-grid-dense {
+  background-image: 
+    linear-gradient(to right, rgba(23, 36, 58, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 36, 58, 0.05) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.pattern-fine-grid-navy {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Halftone Matrix Dots */
+.pattern-dots-cobalt {
+  background-image: radial-gradient(rgba(49, 91, 255, 0.18) 1.25px, transparent 1.25px);
+  background-size: 18px 18px;
+}
+
+.pattern-dots-navy {
+  background-image: radial-gradient(rgba(23, 36, 58, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-dots-lavender {
+  background-image: radial-gradient(rgba(122, 108, 217, 0.22) 1.2px, transparent 1.2px);
+  background-size: 16px 16px;
+}
+
+/* Soft Paper-like Texture Simulation */
+.texture-paper-warm {
+  background-color: #fff9ee;
+  background-image: 
+    radial-gradient(#17243a 0.5px, transparent 0.5px),
+    radial-gradient(#f08075 0.5px, #fff9ee 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  background-blend-mode: soft-light;
+}
+
+/* Reduced Motion Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
+  *, ::before, ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-  .isometric-card {
-    transform: none !important;
-  }
-  .animate-star-float {
-    animation: none !important;
+    scroll-behavior: auto !important;
   }
 }

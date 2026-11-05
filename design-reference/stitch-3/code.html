@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-surface": "#33302a", "on-primary-fixed-variant": "#3a475f", "primary-fixed-dim": "#bac7e4", "surface": "#fff9ee", "surface-tint": "#525f77", "on-tertiary-container": "#b27f69", "tertiary-fixed-dim": "#f3baa1", "tertiary-container": "#3b1b0b", "secondary-fixed-dim": "#b9c3ff", "outline-variant": "#c5c6cd", "on-tertiary-fixed": "#311304", "inverse-primary": "#bac7e4", "on-error-container": "#93000a", "surface-container-highest": "#e8e2d8", "on-secondary-container": "#efefff", "on-surface": "#1d1b16", "tertiary": "#200700", "primary": "#020e24", "on-primary-container": "#7e8ba6", "on-primary": "#ffffff", "secondary": "#003ee3", "on-tertiary-fixed-variant": "#653d2a", "on-error": "#ffffff", "on-secondary-fixed": "#001257", "surface-container": "#f3ede3", "tertiary-fixed": "#ffdbcc", "on-secondary": "#ffffff", "outline": "#75777e", "on-tertiary": "#ffffff", "error": "#ba1a1a", "surface-variant": "#e8e2d8", "surface-bright": "#fff9ee", "background": "#fff9ee", "secondary-container": "#315bff", "surface-container-lowest": "#ffffff", "surface-container-high": "#ede7de", "on-secondary-fixed-variant": "#0034c0", "on-background": "#1d1b16", "surface-container-low": "#f9f3e9", "surface-dim": "#dfd9d0", "on-surface-variant": "#44474d", "error-container": "#ffdad6", "on-primary-fixed": "#0e1c31", "primary-container": "#17243a", "inverse-on-surface": "#f6f0e6", "primary-fixed": "#d6e3ff", "secondary-fixed": "#dde1ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "3.5rem", "space-xl": "3rem", "margin-mobile": "1.25rem", "gutter": "1.5rem", "space-sm": "0.5rem", "space-md": "1rem", "space-lg": "1.75rem", "space-xs": "0.25rem", "gutter-mobile": "1rem" }, "fontFamily": { "headline-md": ["Syne"], "headline-xl-mobile": ["Syne"], "headline-lg-mobile": ["Syne"], "label-md": ["Plus Jakarta Sans"], "headline-md-mobile": ["Syne"], "headline-lg": ["Syne"], "body-lg": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "body-xl": ["Plus Jakarta Sans"], "headline-xl": ["Syne"], "headline-sm": ["Syne"], "body-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-xl-mobile": ["44px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "headline-lg-mobile": ["34px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }], "headline-md-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-lg": ["17px", { "lineHeight": "28px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-xl": ["20px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-xl": ["84px", { "lineHeight": "92px", "letterSpacing": "-0.04em", "fontWeight": "800" }], "headline-sm": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-primary-container/15"><div class="h-20 w-full px-margin-mobile lg:px-margin flex items-center justify-between"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><span class="font-headline-sm text-headline-sm uppercase tracking-tight text-primary-container group-hover:text-primary transition-colors">WEBLY</span><span class="w-2.5 h-2.5 rounded-full bg-secondary-container inline-block"></span></a><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="text-primary-container font-semibold after:scale-x-100"><a aria-current="page" class="relative uppercase tracking-wider transition-colors py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1.5px] after:bg-secondary-container after:transition-transform text-primary-container font-semibold after:scale-x-100" data-path="home" href="#">Home</a><a class="relative font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1.5px] after:bg-secondary-container after:scale-x-0 hover:after:scale-x-100 after:transition-transform" data-path="services" href="#">Services</a><a class="relative font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1.5px] after:bg-secondary-container after:scale-x-0 hover:after:scale-x-100 after:transition-transform" data-path="work" href="#">Work</a><a class="relative font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1.5px] after:bg-secondary-container after:scale-x-0 hover:after:scale-x-100 after:transition-transform" data-path="pricing" href="#">Pricing</a><a class="relative font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1.5px] after:bg-secondary-container after:scale-x-0 hover:after:scale-x-100 after:transition-transform" data-path="about" href="#">About</a><a class="relative font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1.5px] after:bg-secondary-container after:scale-x-0 hover:after:scale-x-100 after:transition-transform" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center font-label-md text-label-md uppercase tracking-wider px-6 py-3 rounded-full bg-primary-container text-inverse-on-surface hover:bg-secondary-container hover:text-on-secondary transition-all shadow-[0_2px_4px_rgba(23,36,58,0.04)]" data-path="contact" href="#">Start a Project</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-20rem)]"><div class="flex flex-col w-full">
+<!-- SECTION 1: HERO -->
+<section class="relative w-full px-margin-mobile lg:px-margin pt-10 pb-24 overflow-hidden">
+<!-- Ambient Subtle Radial Shading -->
+<div class="absolute -top-24 right-1/4 w-[580px] h-[580px] bg-secondary-container/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-1/2 -left-32 w-[460px] h-[460px] bg-tertiary-fixed/30 rounded-full blur-2xl pointer-events-none -z-10"></div>
+<!-- Editorial Header Intro Banner -->
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-8 mb-12 border-b border-primary-container/10">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm">W</span>
+<span class="font-label-md text-label-md tracking-widest uppercase text-on-surface-variant">WEBLY STUDIO / ARCHIVAL DIGITAL CRAFT</span>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-space-md">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary-container">STUDIO ENGAGEMENT QUEUE: ACTIVE</span>
+</div>
+</div>
+<!-- Headline + Value Statement -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end mb-16">
+<div class="lg:col-span-9">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container font-bold mb-3 block">DIGITAL FLAGSHIP ATELIER</span>
+<h1 class="font-headline-xl text-headline-xl text-primary-container uppercase tracking-tighter leading-[0.95]">
+          YOUR IDEAS.<br/>
+<span class="text-secondary-container">OUR DIGITAL</span> CANVAS.
+        </h1>
+</div>
+<div class="lg:col-span-3 pb-2 flex flex-col justify-end">
+<p class="font-body-xl text-body-xl text-on-surface-variant leading-relaxed mb-8">
+          We design and build websites that make your brand stand out.
+        </p>
+<div class="flex flex-wrap items-center gap-space-sm">
+<a class="px-7 py-3.5 rounded-full bg-primary-container text-inverse-on-surface font-label-md text-label-md uppercase tracking-wider hover:bg-secondary-container hover:text-on-secondary transition-all shadow-md" href="#work">
+            Explore Our Work
+          </a>
+<a class="px-7 py-3.5 rounded-full bg-surface-container-high text-primary-container font-label-md text-label-md uppercase tracking-wider hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-all" href="#pricing">
+            Start a Project
+          </a>
+</div>
+</div>
+</div>
+<!-- Hero Visual: Layered Browser Mockup Composition -->
+<div class="relative w-full max-w-7xl mx-auto mt-6">
+<!-- Main Layer 1 Browser Window -->
+<div class="w-full rounded-xl bg-surface-container-lowest shadow-2xl overflow-hidden border border-primary-container/10">
+<!-- Browser Chrome Header -->
+<div class="h-11 px-4 bg-surface-container flex items-center justify-between border-b border-primary-container/10">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#EC6A5E] inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-[#F4BF4F] inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-[#61C554] inline-block"></span>
+</div>
+<div class="px-5 py-1 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm tracking-wide border border-primary-container/5">
+            webly.studio/showcase/edition-25
+          </div>
+<div class="flex items-center gap-3 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span class="material-symbols-outlined text-sm">tune</span>
+</div>
+</div>
+<!-- Mockup Content Canvas -->
+<div class="p-8 lg:p-14 bg-surface-container-low grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-7 space-y-6">
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-tertiary-fixed text-primary-container font-label-sm text-label-sm tracking-wider uppercase font-semibold">IDENTITY &amp; CODE</span>
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-primary-container font-label-sm text-label-sm tracking-wider uppercase font-semibold">FLAGSHIP</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary tracking-tight leading-none">
+              MONOLITH &amp; FORM
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
+              A spatial design monograph built with micro-interactions, responsive typography baselines, and uncompromising tactile contrast.
+            </p>
+<div class="flex items-center gap-6 pt-4">
+<span class="font-label-md text-label-md uppercase tracking-wider text-secondary-container font-bold underline underline-offset-4">Read Technical Breakdown</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">VER. 4.8 / DEPLOY READY</span>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="rounded-lg overflow-hidden bg-primary-container p-6 text-inverse-on-surface shadow-lg">
+<div class="flex items-center justify-between pb-4 border-b border-surface/10 text-on-primary-container font-label-sm text-label-sm tracking-widest uppercase">
+<span>Viewport Manifest</span>
+<span class="text-secondary-fixed">LIVE REPL</span>
+</div>
+<div class="pt-4 space-y-2 font-mono text-xs text-primary-fixed-dim">
+<p><span class="text-secondary-fixed-dim">const</span> studio = <span class="text-tertiary-fixed">"WEBLY"</span>;</p>
+<p><span class="text-secondary-fixed-dim">const</span> craft = { precision: <span class="text-secondary-fixed">1.0</span>, editorial: <span class="text-secondary-fixed">true</span> };</p>
+<p class="text-on-primary-container">// Rendering editorial layout matrix</p>
+<p class="text-surface-bright">canvas.render(typography, spatialPhysics);</p>
+</div>
+<div class="mt-6 pt-4 border-t border-surface/10 flex justify-between items-center text-xs">
+<span class="text-secondary-fixed-dim font-bold">120 FPS FLUID</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary font-label-sm text-label-sm">SYNCHRONIZED</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Overlap Sub-Window Device Viewport -->
+<div class="hidden lg:block absolute -bottom-10 -right-8 w-96 rounded-xl bg-surface-container-lowest shadow-2xl p-4 border border-primary-container/10">
+<div class="flex items-center justify-between pb-3 mb-3 border-b border-primary-container/10">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#EC6A5E] inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#F4BF4F] inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#61C554] inline-block"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Mobile Viewport 390px</span>
+</div>
+<div class="p-3 bg-surface-container rounded-lg space-y-2">
+<div class="w-16 h-2 rounded bg-secondary-container"></div>
+<div class="w-3/4 h-3.5 rounded bg-primary-container"></div>
+<div class="w-full h-2 rounded bg-on-surface-variant/20"></div>
+<div class="w-5/6 h-2 rounded bg-on-surface-variant/20"></div>
+<div class="pt-2 flex justify-between items-center">
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-primary font-label-sm text-label-sm">MOBILE 100%</span>
+<span class="material-symbols-outlined text-secondary-container text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: STUDIO INTRODUCTION -->
+<section class="w-full px-margin-mobile lg:px-margin py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<div class="lg:col-span-5">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container font-bold mb-3 block">STUDIO PHILOSOPHY</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary-container leading-none tracking-tight">
+            DESIGN THAT MAKES AN IMPRESSION.
+          </h2>
+<div class="mt-8 pt-8 border-t border-primary-container/15 space-y-4">
+<div class="flex items-baseline gap-4">
+<span class="font-label-md text-label-md font-bold text-secondary-container">01 /</span>
+<p class="font-body-md text-body-md text-on-surface">Precision-engineered layouts designed to command instant audience credibility.</p>
+</div>
+<div class="flex items-baseline gap-4">
+<span class="font-label-md text-label-md font-bold text-secondary-container">02 /</span>
+<p class="font-body-md text-body-md text-on-surface">Zero bloated boilerplate. Tailored bespoke identity matching the uniqueness of your venture.</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 lg:pl-10 space-y-8">
+<p class="font-body-xl text-body-xl text-on-surface leading-relaxed font-medium">
+            From personal websites to ambitious online businesses, we turn ideas into thoughtful digital experiences.
+          </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            The modern web is inundated with repetitive, commoditized design patterns. At WEBLY, we believe your digital front door deserves architectural presence. We pair strong editorial hierarchy with lightning-fast code, ensuring every visitor experiences your ambition in its most resonant form.
+          </p>
+<!-- Studio Distinction Metric Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
+<div class="p-6 rounded-xl bg-surface-container-lowest border border-primary-container/10">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant block mb-2">CRAFT STANDARD</span>
+<span class="font-headline-sm text-headline-sm text-primary-container block">100% BESPOKE</span>
+<span class="font-body-md text-xs text-on-surface-variant mt-1 block">Zero generic templates</span>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-lowest border border-primary-container/10">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant block mb-2">RESPONSIVENESS</span>
+<span class="font-headline-sm text-headline-sm text-secondary-container block">MULTI-VIEW</span>
+<span class="font-body-md text-xs text-on-surface-variant mt-1 block">Calibrated for all devices</span>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-lowest border border-primary-container/10">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant block mb-2">DELIVERY</span>
+<span class="font-headline-sm text-headline-sm text-primary-container block">DIRECT FLOW</span>
+<span class="font-body-md text-xs text-on-surface-variant mt-1 block">Clear timeline milestones</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: SERVICES -->
+<section class="w-full px-margin-mobile lg:px-margin py-28 bg-surface" id="services">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-primary-container/15">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container font-bold mb-2 block">DISCIPLINES &amp; SPECIALTIES</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary-container tracking-tight">What we create.</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mt-4 md:mt-0">
+          Tailored online solutions crafted with purposeful interaction, clean semantics, and editorial clarity.
+        </p>
+</div>
+<!-- Editorial Staggered Layout Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Service 1 -->
+<div class="group p-8 rounded-xl bg-surface-container-low hover:bg-surface-container-lowest transition-all border border-primary-container/10 hover:border-secondary-container/40 flex flex-col justify-between h-80">
+<div>
+<div class="flex items-center justify-between mb-6">
+<span class="font-label-md text-label-md text-secondary-container font-bold">01</span>
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-primary font-label-sm text-label-sm uppercase">COMMERCIAL</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-3 group-hover:text-secondary transition-colors">Business Websites</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Authority-driven digital headquarters engineered to convert visitors, showcase service depth, and reflect corporate caliber.
+            </p>
+</div>
+<div class="pt-4 flex items-center gap-2 text-on-surface font-label-sm text-label-sm uppercase tracking-wider group-hover:text-secondary-container">
+<span>Learn Architecture</span>
+<span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="group p-8 rounded-xl bg-surface-container-low hover:bg-surface-container-lowest transition-all border border-primary-container/10 hover:border-secondary-container/40 flex flex-col justify-between h-80">
+<div>
+<div class="flex items-center justify-between mb-6">
+<span class="font-label-md text-label-md text-secondary-container font-bold">02</span>
+<span class="px-2.5 py-1 rounded-full bg-tertiary-fixed text-primary-container font-label-sm text-label-sm uppercase">CREATIVE</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-3 group-hover:text-secondary transition-colors">Personal Portfolios</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Bespoke monographs for designers, architects, consultants, and leaders who demand distinctive narrative identity.
+            </p>
+</div>
+<div class="pt-4 flex items-center gap-2 text-on-surface font-label-sm text-label-sm uppercase tracking-wider group-hover:text-secondary-container">
+<span>View Monographs</span>
+<span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="group p-8 rounded-xl bg-surface-container-low hover:bg-surface-container-lowest transition-all border border-primary-container/10 hover:border-secondary-container/40 flex flex-col justify-between h-80">
+<div>
+<div class="flex items-center justify-between mb-6">
+<span class="font-label-md text-label-md text-secondary-container font-bold">03</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm uppercase">ACADEMIC</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-3 group-hover:text-secondary transition-colors">Student Portfolios</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Polished, high-impact career launchpads structured to highlight academic case studies, internships, and dynamic resumes.
+            </p>
+</div>
+<div class="pt-4 flex items-center gap-2 text-on-surface font-label-sm text-label-sm uppercase tracking-wider group-hover:text-secondary-container">
+<span>Explore Formats</span>
+<span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Service 4 -->
+<div class="group p-8 rounded-xl bg-surface-container-low hover:bg-surface-container-lowest transition-all border border-primary-container/10 hover:border-secondary-container/40 flex flex-col justify-between h-80">
+<div>
+<div class="flex items-center justify-between mb-6">
+<span class="font-label-md text-label-md text-secondary-container font-bold">04</span>
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-primary font-label-sm text-label-sm uppercase">RETAIL</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-3 group-hover:text-secondary transition-colors">E-commerce Websites</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Curated storefronts emphasizing product tactility, fluid checkout journeys, and seamless inventory integration.
+            </p>
+</div>
+<div class="pt-4 flex items-center gap-2 text-on-surface font-label-sm text-label-sm uppercase tracking-wider group-hover:text-secondary-container">
+<span>Discover Commerce</span>
+<span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Service 5 -->
+<div class="group p-8 rounded-xl bg-surface-container-low hover:bg-surface-container-lowest transition-all border border-primary-container/10 hover:border-secondary-container/40 flex flex-col justify-between h-80">
+<div>
+<div class="flex items-center justify-between mb-6">
+<span class="font-label-md text-label-md text-secondary-container font-bold">05</span>
+<span class="px-2.5 py-1 rounded-full bg-tertiary-fixed text-primary-container font-label-sm text-label-sm uppercase">CELEBRATION</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-3 group-hover:text-secondary transition-colors">Wedding Invitations</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Elegant bespoke celebration websites featuring interactive RSVP forms, itinerary timelines, and intimate photo narratives.
+            </p>
+</div>
+<div class="pt-4 flex items-center gap-2 text-on-surface font-label-sm text-label-sm uppercase tracking-wider group-hover:text-secondary-container">
+<span>Review Ceremonial</span>
+<span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Service 6 -->
+<div class="group p-8 rounded-xl bg-surface-container-low hover:bg-surface-container-lowest transition-all border border-primary-container/10 hover:border-secondary-container/40 flex flex-col justify-between h-80">
+<div>
+<div class="flex items-center justify-between mb-6">
+<span class="font-label-md text-label-md text-secondary-container font-bold">06</span>
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-primary font-label-sm text-label-sm uppercase">EXPERIENCE</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-3 group-hover:text-secondary transition-colors">Birthday Surprise Websites</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Memorable personalized surprise web destinations with audio playback, message walls, and interactive keepsake modules.
+            </p>
+</div>
+<div class="pt-4 flex items-center gap-2 text-on-surface font-label-sm text-label-sm uppercase tracking-wider group-hover:text-secondary-container">
+<span>See Experiences</span>
+<span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Service 7: Custom Web Apps (Spans 3 cols on large) -->
+<div class="group p-8 lg:p-10 rounded-xl bg-primary-container text-inverse-on-surface md:col-span-2 lg:col-span-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
+<div class="max-w-2xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="font-label-md text-label-md text-secondary-fixed font-bold">07</span>
+<span class="px-3 py-0.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm uppercase tracking-widest">ADVANCED ARCHITECTURE</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-primary mb-3">Custom Web Applications</h3>
+<p class="font-body-md text-body-md text-primary-fixed-dim leading-relaxed">
+              Tailor-built software interfaces, interactive client dashboards, bespoke booking engines, and internal utility platforms built for precision functionality.
+            </p>
+</div>
+<a class="px-8 py-4 rounded-full bg-on-primary text-primary font-label-md text-label-md uppercase tracking-wider hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-all shrink-0" href="#pricing">
+            Request Custom Scope
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: SELECTED WORK (PORTFOLIO) -->
+<section class="w-full px-margin-mobile lg:px-margin py-28 bg-surface-container-low" id="work">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-primary-container/15">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container font-bold mb-2 block">CURATED ARCHIVE</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary-container tracking-tight">Selected Work.</h2>
+</div>
+<div class="flex items-center gap-3 mt-4 md:mt-0">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm uppercase tracking-wider">ALL ARTIFACTS: HONEST CONCEPT PREVIEWS</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+<!-- Work 1: Business Website -->
+<div class="flex flex-col rounded-xl bg-surface-container-lowest overflow-hidden border border-primary-container/10 group shadow-md hover:shadow-xl transition-all">
+<!-- Realistic Browser Header -->
+<div class="h-10 px-4 bg-surface-container flex items-center justify-between border-b border-primary-container/10">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#EC6A5E] inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#F4BF4F] inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#61C554] inline-block"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono text-[11px]">arch-form.studio/preview</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-[10px] uppercase font-bold text-on-surface-variant">Concept Preview</span>
+</div>
+<!-- Realistic UI Interior -->
+<div class="p-8 bg-[#1B222C] text-[#F4F3EF] min-h-[320px] flex flex-col justify-between">
+<div class="flex justify-between items-start border-b border-white/10 pb-4">
+<span class="font-label-md text-label-md tracking-widest uppercase text-white/70">ARCH &amp; FORM ARCHITECTS</span>
+<span class="text-xs font-mono text-white/50">STOCKHOLM // TOKYO</span>
+</div>
+<div class="my-6">
+<span class="text-xs font-mono uppercase tracking-widest text-[#BAC7E4] block mb-2">COMMERCIAL PLATFORM</span>
+<h4 class="font-headline-md text-headline-md uppercase text-white leading-tight">
+                SPATIAL DENSITY &amp; NORDIC MONOLITHS
+              </h4>
+</div>
+<div class="grid grid-cols-3 gap-2 pt-4 border-t border-white/10 text-xs font-mono text-white/60">
+<div>PROJECTS: 48</div>
+<div>TYPOLOGY: RESIDENTIAL</div>
+<div class="text-right">EST. 2019</div>
+</div>
+</div>
+<!-- Card Meta Information -->
+<div class="p-6 bg-surface-container-lowest flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container">Arch &amp; Form</h3>
+<p class="font-body-md text-sm text-on-surface-variant">Architectural Studio Platform / Business Architecture</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-primary font-label-sm text-label-sm uppercase">Corporate</span>
+</div>
+</div>
+<!-- Work 2: Personal Portfolio -->
+<div class="flex flex-col rounded-xl bg-surface-container-lowest overflow-hidden border border-primary-container/10 group shadow-md hover:shadow-xl transition-all">
+<!-- Realistic Browser Header -->
+<div class="h-10 px-4 bg-surface-container flex items-center justify-between border-b border-primary-container/10">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#EC6A5E] inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#F4BF4F] inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#61C554] inline-block"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono text-[11px]">elenavance.design</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-[10px] uppercase font-bold text-on-surface-variant">Concept Preview</span>
+</div>
+<!-- Realistic UI Interior -->
+<div class="p-8 bg-surface text-primary-container min-h-[320px] flex flex-col justify-between border-b border-primary-container/10">
+<div class="flex justify-between items-center pb-4 border-b border-primary-container/10">
+<span class="font-headline-sm text-headline-sm uppercase font-bold tracking-tighter">ELENA VANCE</span>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-[11px] font-bold">EDITORIAL</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-[11px] font-bold">TYPOGRAPHY</span>
+</div>
+</div>
+<div class="my-6 pl-4 border-l-2 border-secondary-container">
+<p class="font-body-lg text-body-lg text-primary-container font-serif italic">
+                “Direction focused on cultural monographs, printed artifacts, and bespoke kinetic layout design.”
+              </p>
+</div>
+<div class="flex justify-between items-center text-xs font-mono text-on-surface-variant">
+<span>INDEX: 2021 — 2025</span>
+<span class="text-secondary-container font-bold">AVAILABILITY: Q3 ACTIVE</span>
+</div>
+</div>
+<!-- Card Meta Information -->
+<div class="p-6 bg-surface-container-lowest flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container">Elena Vance</h3>
+<p class="font-body-md text-sm text-on-surface-variant">Editorial Art Director / Personal Portfolio</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-tertiary-fixed text-primary-container font-label-sm text-label-sm uppercase">Monograph</span>
+</div>
+</div>
+<!-- Work 3: E-commerce Website -->
+<div class="flex flex-col rounded-xl bg-surface-container-lowest overflow-hidden border border-primary-container/10 group shadow-md hover:shadow-xl transition-all">
+<!-- Realistic Browser Header -->
+<div class="h-10 px-4 bg-surface-container flex items-center justify-between border-b border-primary-container/10">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#EC6A5E] inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#F4BF4F] inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#61C554] inline-block"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono text-[11px]">komorebi-objects.store</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-[10px] uppercase font-bold text-on-surface-variant">Concept Preview</span>
+</div>
+<!-- Realistic UI Interior -->
+<div class="p-8 bg-[#EFECE6] text-primary-container min-h-[320px] flex flex-col justify-between border-b border-primary-container/10">
+<div class="flex justify-between items-center pb-3 border-b border-primary-container/15">
+<span class="font-label-md text-label-md uppercase tracking-widest font-bold">KOMOREBI</span>
+<div class="flex items-center gap-4 text-xs">
+<span>VESSELS</span>
+<span>STONEWARE</span>
+<span class="px-2 py-0.5 bg-primary-container text-white rounded font-mono">BAG (0)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 my-4 items-center">
+<div class="p-4 bg-surface-container-lowest rounded border border-primary-container/10">
+<span class="text-[10px] font-mono uppercase text-on-surface-variant block">SERIES 09</span>
+<span class="font-headline-sm text-base uppercase font-bold block mt-1">Glazed Tenmoku Vase</span>
+<span class="font-mono text-xs text-secondary-container mt-2 block">₹4,200</span>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded border border-primary-container/10">
+<span class="text-[10px] font-mono uppercase text-on-surface-variant block">SERIES 12</span>
+<span class="font-headline-sm text-base uppercase font-bold block mt-1">Chawen Tea Bowl</span>
+<span class="font-mono text-xs text-secondary-container mt-2 block">₹2,800</span>
+</div>
+</div>
+<div class="text-[11px] font-mono text-on-surface-variant flex justify-between">
+<span>GLOBAL SECURE CHECKOUT</span>
+<span>BATCH FIRED CERAMICS</span>
+</div>
+</div>
+<!-- Card Meta Information -->
+<div class="p-6 bg-surface-container-lowest flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container">Komorebi Objects</h3>
+<p class="font-body-md text-sm text-on-surface-variant">Ceramic &amp; Object Store / E-commerce Platform</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-primary font-label-sm text-label-sm uppercase">Storefront</span>
+</div>
+</div>
+<!-- Work 4: Invitation Website -->
+<div class="flex flex-col rounded-xl bg-surface-container-lowest overflow-hidden border border-primary-container/10 group shadow-md hover:shadow-xl transition-all">
+<!-- Realistic Browser Header -->
+<div class="h-10 px-4 bg-surface-container flex items-center justify-between border-b border-primary-container/10">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#EC6A5E] inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#F4BF4F] inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#61C554] inline-block"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono text-[11px]">aurelia-julian.rsvp</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-[10px] uppercase font-bold text-on-surface-variant">Concept Preview</span>
+</div>
+<!-- Realistic UI Interior -->
+<div class="p-8 bg-[#FDF9F4] text-primary-container min-h-[320px] flex flex-col justify-between border-b border-primary-container/10">
+<div class="text-center pb-2">
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant block mb-1">CELEBRATION OF UNION</span>
+<h4 class="font-headline-md text-headline-md tracking-wide text-primary-container font-light">
+                AURELIA &amp; JULIAN
+              </h4>
+</div>
+<div class="my-4 p-4 rounded bg-surface-container text-center space-y-1">
+<span class="font-label-sm text-xs font-mono uppercase tracking-widest text-secondary-container block">OCTOBER 18, 2025</span>
+<p class="font-body-md text-xs text-on-surface-variant">Ceremony, Banquet &amp; Reception Schedule</p>
+<div class="pt-2">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary-container text-inverse-on-surface text-xs font-label-md uppercase">RSVP Portal Access</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-[11px] font-mono text-on-surface-variant pt-2 border-t border-primary-container/10">
+<span>RESPONSE DEADLINE: SEP 01</span>
+<span>LIVE GUEST COUNT: 142</span>
+</div>
+</div>
+<!-- Card Meta Information -->
+<div class="p-6 bg-surface-container-lowest flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container">Aurelia &amp; Julian</h3>
+<p class="font-body-md text-sm text-on-surface-variant">Digital Celebration &amp; RSVP / Custom Invitation</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-tertiary-fixed text-primary-container font-label-sm text-label-sm uppercase">Invitation</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: WHY CHOOSE WEBLY -->
+<section class="w-full px-margin-mobile lg:px-margin py-28 bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start mb-16">
+<div class="lg:col-span-6">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container font-bold mb-2 block">STUDIO METRICS</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary-container leading-none tracking-tight">
+            GOOD DESIGN.<br/>BETTER EXPERIENCES.
+          </h2>
+</div>
+<div class="lg:col-span-6 pt-4">
+<p class="font-body-xl text-body-xl text-on-surface-variant leading-relaxed">
+            We operate at the nexus of intentional craft and modern web engineering. Every project is anchored by uncompromising attention to detail, transparent collaboration, and direct accessibility.
+          </p>
+</div>
+</div>
+<!-- Highlighting Pillars -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Pillar 1 -->
+<div class="p-8 rounded-xl bg-surface-container-low border border-primary-container/10 flex flex-col justify-between h-72">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-primary-container mb-4">
+<span class="material-symbols-outlined">brush</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-2">Custom Design</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Every typeface choice, grid partition, and motion curve is tailored exclusively to match your precise brand temperament.
+            </p>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="p-8 rounded-xl bg-surface-container-low border border-primary-container/10 flex flex-col justify-between h-72">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-primary-container mb-4">
+<span class="material-symbols-outlined">devices</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-2">Responsive Dev</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Pixel-level calibration across mobile phones, tablets, high-res laptops, and ultrawide desktop monitors.
+            </p>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="p-8 rounded-xl bg-surface-container-low border border-primary-container/10 flex flex-col justify-between h-72">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container mb-4">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-2">Clear Communication</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Direct access via WhatsApp and email. Transparent milestone checkpoints without agency layers or jargon.
+            </p>
+</div>
+</div>
+<!-- Pillar 4 -->
+<div class="p-8 rounded-xl bg-surface-container-low border border-primary-container/10 flex flex-col justify-between h-72">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container mb-4">
+<span class="material-symbols-outlined">search_check</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-2">Attention to Detail</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              From micro-spacing to instant font loading, every technical facet is verified before handoff.
+            </p>
+</div>
+</div>
+<!-- Pillar 5 -->
+<div class="p-8 rounded-xl bg-surface-container-low border border-primary-container/10 flex flex-col justify-between h-72 md:col-span-2 lg:col-span-2">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-primary-container mb-4">
+<span class="material-symbols-outlined">touch_app</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-2">User-Friendly Experiences</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-2xl">
+              We design with your visitors in mind—intuitive navigation hierarchies, instant page loads, and effortless calls to action that make interacting with your business second nature.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: PROCESS -->
+<section class="w-full px-margin-mobile lg:px-margin py-28 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16 pb-6 border-b border-primary-container/15">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container font-bold mb-2 block">METHODOLOGY</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary-container tracking-tight">How We Work</h2>
+</div>
+<!-- Horizontal Process Timeline -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+<!-- Step 1 -->
+<div class="flex flex-col p-6 rounded-xl bg-surface-container-lowest border border-primary-container/10 relative">
+<div class="flex items-center justify-between pb-6 mb-6 border-b border-primary-container/10">
+<span class="font-headline-md text-headline-md text-secondary-container">01</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-xs font-bold uppercase text-primary-container">PHASE ONE</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-2">Discover</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            We map your objectives, understand your target audience, analyze content scope, and establish visual aesthetic guidelines.
+          </p>
+<div class="mt-auto pt-4 border-t border-primary-container/5 text-xs font-mono text-on-surface-variant">
+            DELIVERABLE: SCOPE MAP &amp; MOODBOARD
+          </div>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col p-6 rounded-xl bg-surface-container-lowest border border-primary-container/10 relative">
+<div class="flex items-center justify-between pb-6 mb-6 border-b border-primary-container/10">
+<span class="font-headline-md text-headline-md text-secondary-container">02</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-xs font-bold uppercase text-primary-container">PHASE TWO</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-2">Design</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Interactive desktop and mobile Figma mockups showing full typographical scales, micro-interactions, and spatial layouts.
+          </p>
+<div class="mt-auto pt-4 border-t border-primary-container/5 text-xs font-mono text-on-surface-variant">
+            DELIVERABLE: INTERACTIVE DESIGN PROTOTYPE
+          </div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col p-6 rounded-xl bg-surface-container-lowest border border-primary-container/10 relative">
+<div class="flex items-center justify-between pb-6 mb-6 border-b border-primary-container/10">
+<span class="font-headline-md text-headline-md text-secondary-container">03</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-xs font-bold uppercase text-primary-container">PHASE THREE</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-2">Develop</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Converting approved designs into lightweight, secure, accessible, and ultra-fast web code with responsive fluid testing.
+          </p>
+<div class="mt-auto pt-4 border-t border-primary-container/5 text-xs font-mono text-on-surface-variant">
+            DELIVERABLE: STAGING SERVER DEPLOYMENT
+          </div>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col p-6 rounded-xl bg-surface-container-lowest border border-primary-container/10 relative">
+<div class="flex items-center justify-between pb-6 mb-6 border-b border-primary-container/10">
+<span class="font-headline-md text-headline-md text-secondary-container">04</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-xs font-bold uppercase text-primary-container">PHASE FOUR</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-2">Launch</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+            Domain linkage, SSL verification, SEO optimization, and client walkthrough to guarantee total operational autonomy.
+          </p>
+<div class="mt-auto pt-4 border-t border-primary-container/5 text-xs font-mono text-on-surface-variant">
+            DELIVERABLE: LIVE WEB ADDRESS &amp; ASSETS
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 7: PRICING -->
+<section class="w-full px-margin-mobile lg:px-margin py-28 bg-surface" id="pricing">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-primary-container/15">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container font-bold mb-2 block">INVESTMENT ARCHITECTURE</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary-container tracking-tight">Simple pricing. Clear choices.</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mt-4 md:mt-0">
+          Transparent, fixed rates without hidden retainers. Select a package and start direct transmission today.
+        </p>
+</div>
+<!-- Pricing Tier Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- 1. Online Invitation -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-primary-container/10 flex flex-col justify-between hover:border-secondary-container/50 transition-all">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant block mb-2">CEREMONY &amp; RSVP</span>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-4">Online Invitation</h3>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="font-headline-lg text-3xl font-bold text-secondary-container">₹499</span>
+<span class="text-xs font-mono text-on-surface-variant uppercase">/ complete</span>
+</div>
+<ul class="space-y-2.5 text-xs text-on-surface mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> One-Page Digital Invite</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Event Schedule &amp; Map Link</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Direct WhatsApp RSVP</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Mobile-Optimized</li>
+</ul>
+</div>
+<a class="w-full py-3 rounded-full text-center bg-surface-container-highest hover:bg-secondary-container hover:text-on-secondary text-primary-container font-label-md text-label-md uppercase tracking-wider transition-colors" href="https://wa.me/916379290968?text=Hello%20Webly%20Studio,%20I%20am%20interested%20in%20the%20Online%20Invitation%20package.">
+            Start a Project
+          </a>
+</div>
+<!-- 2. Birthday Surprise -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-primary-container/10 flex flex-col justify-between hover:border-secondary-container/50 transition-all">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant block mb-2">EXPERIENCE</span>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-4">Birthday Surprise</h3>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="font-headline-lg text-3xl font-bold text-secondary-container">₹999</span>
+<span class="text-xs font-mono text-on-surface-variant uppercase">/ complete</span>
+</div>
+<ul class="space-y-2.5 text-xs text-on-surface mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Interactive Memory Wall</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Photo Gallery / Music Player</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Custom Countdown Timer</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Private Link Sharing</li>
+</ul>
+</div>
+<a class="w-full py-3 rounded-full text-center bg-surface-container-highest hover:bg-secondary-container hover:text-on-secondary text-primary-container font-label-md text-label-md uppercase tracking-wider transition-colors" href="https://wa.me/916379290968?text=Hello%20Webly%20Studio,%20I%20am%20interested%20in%20the%20Birthday%20Surprise%20package.">
+            Start a Project
+          </a>
+</div>
+<!-- 3. Student Portfolio -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-primary-container/10 flex flex-col justify-between hover:border-secondary-container/50 transition-all">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant block mb-2">ACADEMIC / INTERNSHIP</span>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-4">Student Portfolio</h3>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="font-headline-lg text-3xl font-bold text-secondary-container">₹1,499</span>
+<span class="text-xs font-mono text-on-surface-variant uppercase">/ complete</span>
+</div>
+<ul class="space-y-2.5 text-xs text-on-surface mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Project Showcase (Up to 4)</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Resume / PDF Embed Link</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Contact Form &amp; Social Links</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Clean Code Deployment</li>
+</ul>
+</div>
+<a class="w-full py-3 rounded-full text-center bg-surface-container-highest hover:bg-secondary-container hover:text-on-secondary text-primary-container font-label-md text-label-md uppercase tracking-wider transition-colors" href="https://wa.me/916379290968?text=Hello%20Webly%20Studio,%20I%20am%20interested%20in%20the%20Student%20Portfolio%20package.">
+            Start a Project
+          </a>
+</div>
+<!-- 4. Personal Portfolio -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-primary-container/10 flex flex-col justify-between hover:border-secondary-container/50 transition-all">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant block mb-2">INDIVIDUAL CREATIVE</span>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-4">Personal Portfolio</h3>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="font-headline-lg text-3xl font-bold text-secondary-container">₹1,999</span>
+<span class="text-xs font-mono text-on-surface-variant uppercase">/ complete</span>
+</div>
+<ul class="space-y-2.5 text-xs text-on-surface mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Bespoke Personal Branding</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Filterable Case Studies</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Interactive Smooth Scroll</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Domain Setup Assistance</li>
+</ul>
+</div>
+<a class="w-full py-3 rounded-full text-center bg-surface-container-highest hover:bg-secondary-container hover:text-on-secondary text-primary-container font-label-md text-label-md uppercase tracking-wider transition-colors" href="https://wa.me/916379290968?text=Hello%20Webly%20Studio,%20I%20am%20interested%20in%20the%20Personal%20Portfolio%20package.">
+            Start a Project
+          </a>
+</div>
+<!-- 5. Small Business Website -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-primary-container/10 flex flex-col justify-between hover:border-secondary-container/50 transition-all">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant block mb-2">STARTUP / LOCAL</span>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-4">Small Business Website</h3>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="font-headline-lg text-3xl font-bold text-secondary-container">₹3,999</span>
+<span class="text-xs font-mono text-on-surface-variant uppercase">/ complete</span>
+</div>
+<ul class="space-y-2.5 text-xs text-on-surface mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Up to 5 Responsive Pages</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Service Catalog &amp; Inquiries</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Google Maps &amp; SEO Setup</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> WhatsApp Lead Integration</li>
+</ul>
+</div>
+<a class="w-full py-3 rounded-full text-center bg-surface-container-highest hover:bg-secondary-container hover:text-on-secondary text-primary-container font-label-md text-label-md uppercase tracking-wider transition-colors" href="https://wa.me/916379290968?text=Hello%20Webly%20Studio,%20I%20am%20interested%20in%20the%20Small%20Business%20Website%20package.">
+            Start a Project
+          </a>
+</div>
+<!-- 6. Professional Business Website (HIGHLIGHTED) -->
+<div class="p-6 rounded-xl bg-primary-container text-inverse-on-surface border border-secondary-container/40 flex flex-col justify-between shadow-xl relative">
+<div class="absolute -top-3 right-6 px-3 py-0.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm uppercase tracking-widest font-bold">
+            RECOMMENDED
+          </div>
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed block mb-2">FLAGSHIP COMMERCIAL</span>
+<h3 class="font-headline-sm text-headline-sm uppercase text-on-primary mb-4">Professional Business</h3>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="font-headline-lg text-3xl font-bold text-secondary-fixed">₹7,999</span>
+<span class="text-xs font-mono text-primary-fixed-dim uppercase">/ complete</span>
+</div>
+<ul class="space-y-2.5 text-xs text-primary-fixed-dim mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-fixed">check</span> Up to 10 Bespoke Web Pages</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-fixed">check</span> High-Tier Editorial Layouts</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-fixed">check</span> Advanced Conversion Funnels</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-fixed">check</span> Speed &amp; Performance Audit</li>
+</ul>
+</div>
+<a class="w-full py-3 rounded-full text-center bg-secondary-container hover:bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-wider transition-colors shadow-md" href="https://wa.me/916379290968?text=Hello%20Webly%20Studio,%20I%20am%20interested%20in%20the%20Professional%20Business%20Website%20package.">
+            Start a Project
+          </a>
+</div>
+<!-- 7. E-commerce Website -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-primary-container/10 flex flex-col justify-between hover:border-secondary-container/50 transition-all">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant block mb-2">STOREFRONT &amp; SALES</span>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-4">E-commerce Website</h3>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="font-headline-lg text-3xl font-bold text-secondary-container">₹12,999</span>
+<span class="text-xs font-mono text-on-surface-variant uppercase">/ complete</span>
+</div>
+<ul class="space-y-2.5 text-xs text-on-surface mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Full Product Catalog Setup</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Secure Payment Gateway</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Cart &amp; Order Notifications</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Inventory Management CMS</li>
+</ul>
+</div>
+<a class="w-full py-3 rounded-full text-center bg-surface-container-highest hover:bg-secondary-container hover:text-on-secondary text-primary-container font-label-md text-label-md uppercase tracking-wider transition-colors" href="https://wa.me/916379290968?text=Hello%20Webly%20Studio,%20I%20am%20interested%20in%20the%20E-commerce%20Website%20package.">
+            Start a Project
+          </a>
+</div>
+<!-- 8. Custom Web Applications -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-primary-container/10 flex flex-col justify-between hover:border-secondary-container/50 transition-all">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant block mb-2">BESPOKE ARCHITECTURE</span>
+<h3 class="font-headline-sm text-headline-sm uppercase text-primary-container mb-4">Custom Web Apps</h3>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="font-headline-lg text-3xl font-bold text-primary-container">Custom Quote</span>
+</div>
+<ul class="space-y-2.5 text-xs text-on-surface mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Custom Logic &amp; Databases</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> User Auth &amp; Dashboards</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> API &amp; Third-Party Services</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary-container">check</span> Dedicated Maintenance Scope</li>
+</ul>
+</div>
+<a class="w-full py-3 rounded-full text-center bg-surface-container-highest hover:bg-secondary-container hover:text-on-secondary text-primary-container font-label-md text-label-md uppercase tracking-wider transition-colors" href="https://wa.me/916379290968?text=Hello%20Webly%20Studio,%20I%20would%20like%20a%20Custom%20Quote%20for%20a%20Web%20Application.">
+            Start a Project
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 8: FAQ -->
+<section class="w-full px-margin-mobile lg:px-margin py-28 bg-surface-container-low">
+<div class="max-w-4xl mx-auto">
+<div class="mb-14 pb-6 border-b border-primary-container/15 text-center">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container font-bold mb-2 block">INQUIRIES</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary-container tracking-tight">Frequently Asked Questions</h2>
+</div>
+<div class="space-y-4" id="faq-container">
+<!-- FAQ 1 -->
+<div class="rounded-xl bg-surface-container-lowest border border-primary-container/10 p-6">
+<button class="w-full flex items-center justify-between text-left font-headline-sm text-headline-sm uppercase text-primary-container focus:outline-none" onclick="toggleFaq(this)">
+<span>How long does a website take to build?</span>
+<span class="material-symbols-outlined transition-transform duration-200 text-secondary-container">expand_more</span>
+</button>
+<div class="hidden pt-4 mt-4 border-t border-primary-container/5 text-on-surface-variant font-body-md text-body-md leading-relaxed">
+            Personal websites and invitations are typically completed in 2 to 4 days. Standard and professional business websites average 5 to 10 days, while custom web applications vary based on specific feature requirements.
+          </div>
+</div>
+<!-- FAQ 2 -->
+<div class="rounded-xl bg-surface-container-lowest border border-primary-container/10 p-6">
+<button class="w-full flex items-center justify-between text-left font-headline-sm text-headline-sm uppercase text-primary-container focus:outline-none" onclick="toggleFaq(this)">
+<span>Will my website work properly on mobile phones?</span>
+<span class="material-symbols-outlined transition-transform duration-200 text-secondary-container">expand_more</span>
+</button>
+<div class="hidden pt-4 mt-4 border-t border-primary-container/5 text-on-surface-variant font-body-md text-body-md leading-relaxed">
+            Yes. Every website we build is completely responsive. We meticulously structure breakpoints to ensure the layout adapts seamlessly to smartphones, tablets, laptops, and ultra-wide screens.
+          </div>
+</div>
+<!-- FAQ 3 -->
+<div class="rounded-xl bg-surface-container-lowest border border-primary-container/10 p-6">
+<button class="w-full flex items-center justify-between text-left font-headline-sm text-headline-sm uppercase text-primary-container focus:outline-none" onclick="toggleFaq(this)">
+<span>Do I have to provide the domain and hosting?</span>
+<span class="material-symbols-outlined transition-transform duration-200 text-secondary-container">expand_more</span>
+</button>
+<div class="hidden pt-4 mt-4 border-t border-primary-container/5 text-on-surface-variant font-body-md text-body-md leading-relaxed">
+            We provide full setup guidance. If you already own a domain and hosting, we deploy straight to your environment. If not, we help you secure the ideal domain and the most cost-effective, dependable hosting solution.
+          </div>
+</div>
+<!-- FAQ 4 -->
+<div class="rounded-xl bg-surface-container-lowest border border-primary-container/10 p-6">
+<button class="w-full flex items-center justify-between text-left font-headline-sm text-headline-sm uppercase text-primary-container focus:outline-none" onclick="toggleFaq(this)">
+<span>How do we start a project?</span>
+<span class="material-symbols-outlined transition-transform duration-200 text-secondary-container">expand_more</span>
+</button>
+<div class="hidden pt-4 mt-4 border-t border-primary-container/5 text-on-surface-variant font-body-md text-body-md leading-relaxed">
+            Select your preferred package above, reach out directly through WhatsApp at +91 63792 90968 or send an email to webly.studioservice@gmail.com. We will outline your requirements, confirm the details, and begin immediately.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 9: FINAL CTA -->
+<section class="w-full px-margin-mobile lg:px-margin py-32 bg-primary-container text-inverse-on-surface relative overflow-hidden">
+<div class="max-w-5xl mx-auto text-center relative z-10">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-fixed block mb-4 font-bold">READY TO COMMENCE?</span>
+<h2 class="font-headline-xl text-headline-xl uppercase text-on-primary tracking-tighter leading-none mb-8">
+        LET'S MAKE<br/><span class="text-secondary-fixed">SOMETHING GREAT.</span>
+</h2>
+<p class="font-body-xl text-body-xl text-primary-fixed-dim max-w-xl mx-auto mb-12">
+        Whether launching an enterprise business portal, crafting a distinctive portfolio, or celebrating a milestone, we are ready to build it.
+      </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="px-10 py-5 rounded-full bg-secondary-container hover:bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-widest font-bold transition-all shadow-xl" href="https://wa.me/916379290968">
+          Start Your Project
+        </a>
+<a class="px-8 py-5 rounded-full bg-surface/10 hover:bg-surface/20 text-on-primary font-label-md text-label-md uppercase tracking-wider transition-all" href="mailto:webly.studioservice@gmail.com">
+          Transmit Email Direct
+        </a>
+</div>
+</div>
+<!-- Architectural Grid Background Elements -->
+<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-secondary-fixed/5 rounded-full blur-3xl pointer-events-none"></div>
+</section>
+<!-- Micro-interaction JavaScript for Accordion -->
+<script>
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('.material-symbols-outlined');
+      const isExpanded = !content.classList.contains('hidden');
+      
+      document.querySelectorAll('#faq-container > div > div').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('#faq-container button .material-symbols-outlined').forEach(i => i.style.transform = 'rotate(0deg)');
+      
+      if (!isExpanded) {
+        content.classList.remove('hidden');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container border-t border-primary-container/15"><div class="w-full px-margin-mobile lg:px-margin py-margin"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start pb-margin border-b border-primary-container/15"><div class="md:col-span-4"><a class="flex items-center gap-space-sm mb-space-sm" data-path="home" href="#"><span class="font-headline-sm text-headline-sm uppercase tracking-tight text-primary-container">WEBLY</span><span class="w-2.5 h-2.5 rounded-full bg-secondary-container inline-block"></span></a><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Editorial digital flagship architecture &amp; high-precision digital studio craft.</p></div><div class="md:col-span-4"><span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container block mb-space-md">Navigation</span><nav class="flex flex-col space-y-space-sm" data-active-classes="text-primary-container font-semibold"><a aria-current="page" class="uppercase tracking-wider transition-colors text-primary-container font-semibold" data-path="home" href="#">Home</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="services" href="#">Services</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="work" href="#">Work</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="pricing" href="#">Pricing</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></nav></div><div class="md:col-span-4"><span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container block mb-space-md">Direct Transmission</span><div class="flex flex-col space-y-space-sm"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">WhatsApp</span><a class="font-body-md text-body-md text-primary-container hover:text-secondary-container transition-colors" href="https://wa.me/916379290968">+91 63792 90968</a></div><div class="flex flex-col pt-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Email</span><a class="font-body-md text-body-md text-primary-container hover:text-secondary-container transition-colors" href="mailto:webly.studioservice@gmail.com">webly.studioservice@gmail.com</a></div></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">© 2025 WEBLY STUDIO. ALL RIGHTS RESERVED.</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary-container">DIGITAL ARCHITECTURE &amp; CRAFT</span></div></div></footer></body></html>

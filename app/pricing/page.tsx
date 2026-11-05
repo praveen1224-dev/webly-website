@@ -1,559 +1,743 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
+import Image from "next/image";
+import Navbar from "../components/Navbar";
+import MobileBottomNav from "../components/MobileBottomNav";
+import BrandFooter from "../components/BrandFooter";
 import {
-  ArrowLeft,
-  ArrowRight,
-  ArrowUpRight,
-  Check,
   ChevronDown,
-  Clock,
-  HelpCircle,
-  Info,
-  MessageCircle,
-  ShieldCheck,
+  Check,
+  ArrowRight,
   Sparkles,
+  Zap,
 } from "lucide-react";
+import {
+  StudioStarburst,
+  StudioCrosshair,
+  StudioDotGrid,
+} from "../components/StudioDecorations";
 
-const WHATSAPP_NUM = "916379290968";
-const WHATSAPP_DISPLAY = "+91 63792 90968";
-const STUDIO_EMAIL = "webly.studioservice@gmail.com";
+const WHATSAPP_BASE = "https://wa.me/916379290968";
 
-const pricingTiers = [
-  {
-    category: "PERSONAL & MILESTONE DISCIPLINES",
-    description: "Handcrafted web experiences for life milestones, career launches, and personal authority.",
-    items: [
-      {
-        number: "01",
-        name: "Online Invitation Website",
-        price: "₹499",
-        badge: "Flagship Celebration",
-        turnaround: "2–4 Days",
-        detail:
-          "Bespoke digital RSVP portals and event storytelling for weddings, receptions, engagements, and private galas.",
-        deliverables: [
-          "Interactive Guest RSVP Vault",
-          "Google Maps Venue Directions",
-          "Live Event Countdown Timer",
-          "Event Schedule & Itinerary Timeline",
-          "Mobile-First Touchscreen Polish",
-          "Custom WhatsApp RSVP Notification",
-        ],
-        idealFor: "Weddings, private milestone celebrations, anniversaries",
-      },
-      {
-        number: "02",
-        name: "Birthday Surprise Website",
-        price: "₹999",
-        badge: "Celebration Portal",
-        turnaround: "3–5 Days",
-        detail:
-          "Personalized memory vaults, hidden message clues, time capsules, and interactive celebration portals for loved ones.",
-        deliverables: [
-          "Interactive Memory Vault",
-          "Hidden Clue / Message Locker",
-          "High-Resolution Photo Gallery",
-          "Custom Wishes & Video Wall",
-          "Background Music Player Integration",
-          "Password / PIN Protected Portal",
-        ],
-        idealFor: "Significant birthdays, romantic surprises, tributes",
-      },
-      {
-        number: "03",
-        name: "Student Portfolio Website",
-        price: "₹1,499",
-        badge: "Career Launch",
-        turnaround: "3–5 Days",
-        detail:
-          "High-impact showcase platforms engineered to dominate competitive interviews, internships, and hackathons.",
-        deliverables: [
-          "Interactive Project Showcase Cards",
-          "Resume PDF Viewer & Direct Download",
-          "GitHub, LinkedIn, & Dev Profile Sync",
-          "Hackathon & Award Badges Section",
-          "Sub-Second Page Load Speed (<0.8s)",
-          "Clean Next.js Code Handover",
-        ],
-        idealFor: "Engineering students, CS grads, bootcamp graduates, designers",
-      },
-      {
-        number: "04",
-        name: "Personal Portfolio Website",
-        price: "₹1,999",
-        badge: "Executive Identity",
-        turnaround: "4–7 Days",
-        detail:
-          "Tailored digital identity for creators, executives, architects, and independent consultants demanding authority.",
-        deliverables: [
-          "Editorial Biography & Core Philosophy",
-          "Curated Case Studies & Gallery Drawer",
-          "Custom Inquiry & Booking Form",
-          "Full SEO Metadata & Social Graph Tags",
-          "Fluid Micro-Interactions & Transitions",
-          "100% Code & Asset Handover",
-        ],
-        idealFor: "Freelancers, creators, executives, independent consultants",
-      },
-    ],
-  },
-  {
-    category: "BUSINESS & COMMERCIAL DISCIPLINES",
-    description: "Conversion-focused web presences built to establish credibility and capture inbound demand.",
-    items: [
-      {
-        number: "05",
-        name: "Small Business Website",
-        price: "₹3,999",
-        badge: "Local Authority",
-        turnaround: "5–8 Days",
-        detail:
-          "Modern service pages, local SEO optimization, and frictionless WhatsApp click-to-book integrations.",
-        deliverables: [
-          "Service Catalog & Pricing Structure",
-          "WhatsApp Direct Click-to-Book Integration",
-          "Google Maps & Local Search Optimization",
-          "Mobile-Optimized Touch Layouts",
-          "Client Testimonials & Trust Markers",
-          "Contact & Location Inquiry Form",
-        ],
-        idealFor: "Local shops, clinics, law offices, boutique studios, salons",
-      },
-      {
-        number: "06",
-        name: "Professional Business Website",
-        price: "₹7,999",
-        badge: "Corporate Presence",
-        turnaround: "7–10 Days",
-        detail:
-          "Comprehensive multi-page corporate presence, case registries, team directories, and automated inquiry routing.",
-        deliverables: [
-          "Multi-Page Architecture (Home, Services, About, Team, Case Studies, Contact)",
-          "Dynamic Inquiry & Lead Intake Workflows",
-          "Institutional Trust Badges & Metrics",
-          "Enterprise SEO & Schema Markup",
-          "Performance Audit Score 95+ Guaranteed",
-          "Full Codebase & Domain Setup Handover",
-        ],
-        idealFor: "Expanding companies, corporate agencies, B2B services, consultancies",
-      },
-      {
-        number: "07",
-        name: "E-commerce Website",
-        price: "₹12,999",
-        badge: "Digital Commerce",
-        turnaround: "10–14 Days",
-        detail:
-          "Direct-to-consumer digital storefronts, payment gateways, product catalogs, and frictionless shopping carts.",
-        deliverables: [
-          "Product Catalog & Collection Filtering",
-          "Instant Sliding Cart / Shopping Bag Drawer",
-          "Razorpay / Stripe / UPI Payment Setup",
-          "Customer Order Intake & WhatsApp Confirmation",
-          "Mobile-Optimized Fast Checkout Flow",
-          "Inventory & Product Management Setup",
-        ],
-        idealFor: "Boutique fashion, craft artisans, consumer goods, digital products",
-      },
-      {
-        number: "08",
-        name: "Custom Web Applications",
-        price: "Custom Quote",
-        badge: "Bespoke Engineering",
-        turnaround: "Scoped per project",
-        detail:
-          "Specialized workflows, proprietary client dashboards, dynamic calculators, internal tooling, and API services.",
-        deliverables: [
-          "Tailored User Authentication & Dashboards",
-          "Proprietary Business Logic & Calculators",
-          "Third-Party REST / GraphQL API Integrations",
-          "Relational / Serverless Database Setup",
-          "Architectural Technical Specification Document",
-          "Dedicated Post-Launch Deployment Support",
-        ],
-        idealFor: "SaaS startups, specialized enterprise tooling, custom web portals",
-      },
-    ],
-  },
-];
-
-const pricingFaqs = [
-  {
-    q: "Why are WEBLY's starting rates so accessible compared to traditional agencies?",
-    a: "We operate as an independent digital studio without bloated agency overhead, sales commissions, or junior account manager salaries. You collaborate directly with the developer and designer building your site. This allows us to deliver high-craft, hand-coded Next.js websites at honest, transparent rates.",
-  },
-  {
-    q: "What factors might adjust the base starting rate for my project?",
-    a: "The starting rate covers a complete, foundational, production-ready website for that discipline. If your project requires extensive additional pages (e.g., 10+ sub-pages), custom third-party API integrations, complex payment gateways, or extensive animation scripting, we provide a transparent, fixed-price quote upfront before starting.",
-  },
-  {
-    q: "How do revisions work during the build?",
-    a: "Every engagement includes dedicated revision checkpoints. During Phase Two (Design) and Phase Three (Develop), we share staging previews where you can test the layout, typography, and interactive flows. We refine until you are completely satisfied with the look and feel.",
-  },
-  {
-    q: "Are hosting and domain costs included?",
-    a: "We deploy client websites to high-speed global edge networks (such as Vercel or Cloudflare), which offer generous free-tier hosting for most small-to-medium websites with zero monthly fee. If you already have a domain, we map it free of charge. If you need a new domain (e.g. .com or .in), you purchase it directly so you retain 100% legal ownership.",
-  },
-  {
-    q: "How do project payments work?",
-    a: "For transparency and security, we typically operate on a simple milestone model: a 50% deposit upon project kickoff after agreeing on scope, and the remaining 50% upon final staging review and domain handover.",
-  },
-];
-
-function getWhatsAppLink(service: string) {
-  const message = `Hi WEBLY! I'm interested in discussing the "${service}". Please share timeline, scope, and quotation.`;
-  return `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(message)}`;
+function getWhatsAppLink(serviceName: string, price?: string) {
+  const isCustom = price === "CUSTOM QUOTE" || price === "Custom Quote" || !price;
+  const msg = isCustom
+    ? `Hello Webly Studio, I would like a Custom Quote for ${serviceName}.`
+    : `Hello Webly Studio, I am interested in the ${serviceName} package (${price}).`;
+  return `${WHATSAPP_BASE}?text=${encodeURIComponent(msg)}`;
 }
 
+type FilterCategory = "all" | "personal" | "commercial" | "bespoke";
+
 export default function PricingPage() {
+  const [filter, setFilter] = useState<FilterCategory>("all");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const pricingTiers = [
+    {
+      id: "online-invite",
+      category: "personal",
+      badge: "CEREMONY & RSVP",
+      icon: "celebration",
+      title: "Online Invitation",
+      description:
+        "Interactive RSVP, event chronology, and digital celebration showcase.",
+      price: "₹499",
+      priceLabel: "FLAT FEE",
+      deliverables: [
+        "1-Page responsive digital invite",
+        "Interactive RSVP form & Google Map link",
+        "Photo gallery & event schedule layout",
+        "Direct WhatsApp sharing link",
+      ],
+      cardStyle: "bg-[#FDF4EF] border border-[#F2B9A0] hover:border-[#F08075]",
+      badgeStyle: "bg-[#F2B9A0]/30 text-[#9E3E26]",
+      priceColor: "text-[#9E3E26]",
+      btnStyle: "bg-[#17243A] text-white hover:bg-[#315BFF]",
+    },
+    {
+      id: "birthday-surprise",
+      category: "personal",
+      badge: "EXPERIENCE",
+      icon: "cake",
+      title: "Birthday Surprise",
+      description:
+        "Story-driven memory wall, dynamic countdown, and greeting experience.",
+      price: "₹999",
+      priceLabel: "FLAT FEE",
+      deliverables: [
+        "Curated memory timeline & captions",
+        "Ambient background audio soundtrack",
+        "Live countdown ticker & confetti fx",
+        "Private link & password lock option",
+      ],
+      cardStyle: "bg-[#FDF1EF] border border-[#F08075]/40 hover:border-[#F08075]",
+      badgeStyle: "bg-[#F08075]/20 text-[#C44D42]",
+      priceColor: "text-[#D84335]",
+      btnStyle: "bg-[#F08075] text-white hover:bg-[#17243A]",
+    },
+    {
+      id: "student-portfolio",
+      category: "personal",
+      badge: "ACADEMIC / INTERNSHIP",
+      icon: "school",
+      title: "Student Portfolio",
+      description:
+        "Academic projects, dynamic resume, certifications, and personal brand.",
+      price: "₹1,499",
+      priceLabel: "FLAT FEE",
+      deliverables: [
+        "Project case studies layout (up to 4)",
+        "1-Click downloadable PDF resume",
+        "GitHub / LinkedIn / Behance integrations",
+        "Clean responsive format for recruiters",
+      ],
+      cardStyle: "bg-[#EDF7F2] border border-[#BFE5D2] hover:border-[#2EA875]",
+      badgeStyle: "bg-[#BFE5D2]/40 text-[#1B6D4B]",
+      priceColor: "text-[#1B6D4B]",
+      btnStyle: "bg-[#17243A] text-white hover:bg-[#315BFF]",
+    },
+    {
+      id: "personal-portfolio",
+      category: "personal",
+      badge: "CREATIVE MONOGRAPH",
+      icon: "palette",
+      title: "Personal Portfolio",
+      description:
+        "For creative directors, photographers, artists, writers, and freelancers.",
+      price: "₹1,999",
+      priceLabel: "FLAT FEE",
+      deliverables: [
+        "Bespoke editorial typography & layout",
+        "Filtered visual portfolio gallery",
+        "Direct client inquiry & booking trigger",
+        "SEO fundamentals & fast Web Vitals",
+      ],
+      cardStyle: "bg-[#F3EFFC] border border-[#DDD5F5] hover:border-[#7A6CD9]",
+      badgeStyle: "bg-[#DCD9F5]/60 text-[#5B4DBF]",
+      priceColor: "text-[#5B4DBF]",
+      btnStyle: "bg-[#7A6CD9] text-white hover:bg-[#17243A]",
+    },
+    {
+      id: "small-business",
+      category: "commercial",
+      badge: "COMMERCIAL FLAGSHIP",
+      icon: "storefront",
+      title: "Small Business Website",
+      description:
+        "Fast, conversion-focused multi-section site for local companies & consultancies.",
+      price: "₹3,999",
+      priceLabel: "FLAT FEE",
+      deliverables: [
+        "Up to 4 structured content sections",
+        "Lead capture form + WhatsApp direct CTA",
+        "Google Maps local business alignment",
+        "Speed-optimized code & SSL setup assist",
+      ],
+      cardStyle: "bg-[#FEF9E7] border border-[#F6D77A] hover:border-[#E5B834]",
+      badgeStyle: "bg-[#F6D77A]/40 text-[#8C6D0A]",
+      priceColor: "text-[#8C6D0A]",
+      btnStyle: "bg-[#17243A] text-white hover:bg-[#315BFF]",
+    },
+    {
+      id: "pro-business",
+      category: "commercial",
+      badge: "ENTERPRISE IDENTITY",
+      icon: "corporate_fare",
+      title: "Professional Business Website",
+      description:
+        "Multi-page comprehensive digital flagship for established brands & firms.",
+      price: "₹7,999",
+      priceLabel: "FLAT FEE",
+      deliverables: [
+        "5–8 bespoke responsive pages",
+        "CMS-ready team, blog & services sections",
+        "Technical SEO audit & Schema markup",
+        "Full analytics tracking & tag setup",
+      ],
+      cardStyle: "bg-white border-2 border-[#315BFF] shadow-xl hover:shadow-2xl",
+      badgeStyle: "bg-[#315BFF]/15 text-[#315BFF]",
+      priceColor: "text-[#315BFF]",
+      btnStyle: "bg-[#315BFF] text-white hover:bg-[#17243A]",
+    },
+    {
+      id: "ecommerce",
+      category: "commercial",
+      badge: "COMMERCE ARCHITECTURE",
+      icon: "shopping_bag",
+      title: "E-commerce Website",
+      description:
+        "Turnkey digital storefront, product catalogue, cart, and payment checkout flow.",
+      price: "₹12,999",
+      priceLabel: "FLAT FEE",
+      deliverables: [
+        "Product catalog & filtered categories",
+        "Razorpay / Stripe / UPI payment integration",
+        "Cart, order confirmation & customer emails",
+        "Inventory management admin setup",
+      ],
+      cardStyle: "bg-[#EEF4FF] border border-[#C8DCFF] hover:border-[#315BFF]",
+      badgeStyle: "bg-[#315BFF]/15 text-[#315BFF]",
+      priceColor: "text-[#315BFF]",
+      btnStyle: "bg-[#17243A] text-white hover:bg-[#315BFF]",
+    },
+    {
+      id: "custom-apps",
+      category: "bespoke",
+      badge: "BESPOKE SOFTWARE",
+      icon: "terminal",
+      title: "Custom Web Applications",
+      description:
+        "Tailored bespoke architectures, authenticated portals, APIs, and client dashboards.",
+      price: "CUSTOM QUOTE",
+      priceLabel: "TAILORED SCOPE",
+      deliverables: [
+        "Bespoke frontend & custom database models",
+        "Auth, user roles & protected dashboards",
+        "Third-party API & webhook integrations",
+        "Dedicated architecture sprint & QA",
+      ],
+      cardStyle: "bg-[#17243A] text-white border-2 border-[#315BFF] shadow-xl hover:shadow-2xl",
+      badgeStyle: "bg-[#DCD9F5] text-[#17243A] font-bold",
+      priceColor: "text-[#DCD9F5]",
+      btnStyle: "bg-[#315BFF] text-white hover:bg-white hover:text-[#17243A] shadow-md",
+      isDark: true,
+    },
+  ];
+
+  const filteredTiers =
+    filter === "all"
+      ? pricingTiers
+      : pricingTiers.filter((tier) => tier.category === filter);
+
+  const pricingFaqData = [
+    {
+      q: "Are there any recurring or hidden studio fees?",
+      a: "None. The price quoted on this page is the exact flat one-time design and development cost. You never receive unannounced maintenance invoices or surprise deployment surcharges.",
+    },
+    {
+      q: "How do domain registration and web hosting work?",
+      a: "For microsites (Invitations & Birthday pages), we provide zero-cost hosted links. For portfolios and business websites, we guide you directly to purchase your domain (.com, .in) under your own name and link it to high-speed cloud hosting (often free on Vercel/Netlify or minimal shared servers). You retain 100% legal ownership of your digital assets.",
+    },
+    {
+      q: "How do we start a project?",
+      a: "Tap 'Start a Project' or reach out via WhatsApp at +91 63792 90968. Share your requirements, content, and references. We confirm the scope and begin work immediately.",
+    },
+  ];
+
   return (
-    <main className="min-h-screen bg-[#060608] text-[#f4f4f5] selection:bg-white selection:text-black">
-      {/* =========================================================================
-          HEADER
-      ========================================================================= */}
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.08] bg-[#060608]/90 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 sm:h-20 max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
-          <Link href="/" className="flex items-center gap-3 group">
-            <Image
-              src="/webly-logo.png"
-              alt="WEBLY"
-              width={140}
-              height={50}
-              priority
-              className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-            />
-            <span className="font-syne font-bold text-sm tracking-[0.25em] text-white uppercase hidden sm:inline-block">
-              WEBLY
-            </span>
-          </Link>
+    <div className="min-h-screen bg-[#FAF9F6] font-sans text-[#17243A] antialiased selection:bg-[#315BFF] selection:text-white">
+      {/* 1. Header Navigation with Pricing Active */}
+      <Navbar activePage="pricing" />
 
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/80 transition-all hover:bg-white hover:text-black"
-          >
-            <ArrowLeft size={13} />
-            <span>Return to Studio</span>
-          </Link>
-        </div>
-      </header>
+      {/* Main Pricing Content */}
+      <main className="w-full pt-20 bg-[#FAF9F6] min-h-[calc(100vh-20rem)] pb-28 md:pb-0">
+        
+        {/* SECTION 1: PRICING HERO */}
+        <section className="relative w-full px-margin-mobile lg:px-margin pt-10 sm:pt-16 pb-12 sm:pb-16 overflow-hidden bg-[#FAF9F6]">
+          {/* Subtle multi-color glowing spheres & Architectural Grid */}
+          <div className="absolute inset-0 pattern-fine-grid opacity-50 pointer-events-none -z-10" />
+          <div className="absolute -top-24 right-1/4 w-[500px] h-[500px] bg-[#315BFF]/10 rounded-full blur-3xl pointer-events-none -z-10" />
+          <div className="absolute top-1/2 -left-28 w-[400px] h-[400px] bg-[#F08075]/12 rounded-full blur-2xl pointer-events-none -z-10" />
+          <div className="absolute bottom-0 right-10 w-[360px] h-[360px] bg-[#DCD9F5]/25 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      {/* =========================================================================
-          HERO SECTION
-      ========================================================================= */}
-      <section className="relative overflow-hidden px-5 pb-16 pt-32 sm:px-8 sm:pb-24 sm:pt-40 lg:px-12 border-b border-white/[0.08]">
-        <div className="pointer-events-none absolute inset-0 bg-grid-hairline opacity-30" />
-        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-white/[0.02] blur-[120px] rounded-full" />
-
-        <div className="relative mx-auto max-w-[1440px] text-center">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.03] px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/80">
-            <span className="h-1.5 w-1.5 rounded-full bg-white" />
-            <span>TRANSPARENT FOUNDATION RATES · ALL EIGHT SERVICES</span>
-          </div>
-
-          <h1 className="mx-auto mt-6 max-w-4xl font-syne text-4xl sm:text-6xl lg:text-7xl font-bold leading-[0.96] tracking-tight text-white uppercase">
-            TRANSPARENT
-            <br />
-            <span className="font-serif italic font-normal text-white/70 lowercase sm:text-5xl lg:text-6xl">
-              investment
-            </span>{" "}
-            INDEX
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-xs sm:text-sm leading-relaxed text-white/60 font-sans">
-            Explore our foundational rates across all eight studio disciplines. Every build is handcrafted with surgical precision, clean Next.js architecture, and zero template bloat. Contact us directly on WhatsApp to confirm timeline, scope, and final investment before work begins.
-          </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a
-              href={`https://wa.me/${WHATSAPP_NUM}?text=Hi%20WEBLY!%20I%20would%20like%20to%20discuss%20pricing%20and%20scope.`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-sm bg-white px-6 py-3 font-mono text-xs uppercase tracking-wider font-semibold text-black transition hover:bg-neutral-200"
-            >
-              <MessageCircle size={15} />
-              <span>Discuss Pricing on WhatsApp</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          PRICING TIERS GRID
-      ========================================================================= */}
-      <section className="px-5 py-20 sm:px-8 sm:py-28 lg:px-12 border-b border-white/[0.08]">
-        <div className="mx-auto max-w-[1440px] space-y-20">
-          {pricingTiers.map((group) => (
-            <div key={group.category}>
-              {/* Category Header */}
-              <div className="mb-10 border-b border-white/[0.08] pb-5 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-                <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/45">
-                    {group.category}
-                  </p>
-                  <p className="mt-1 font-syne text-2xl sm:text-3xl font-bold text-white">
-                    {group.category.includes("PERSONAL")
-                      ? "Personal & Narrative Milestones"
-                      : "Business & Enterprise Presences"}
-                  </p>
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end">
+              <div className="lg:col-span-8">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="font-label-sm text-xs uppercase tracking-widest text-[#315BFF] font-black block">
+                    TRANSPARENT INVESTMENT STRUCTURE
+                  </span>
+                  <StudioStarburst size={12} fill="#315BFF" />
                 </div>
-                <p className="text-xs text-white/55 font-sans max-w-md">{group.description}</p>
+                <h1 className="font-syne text-[38px] xs:text-[46px] sm:text-6xl md:text-7xl font-black text-[#17243A] tracking-tight leading-[0.95]">
+                  Simple pricing.
+                  <br />
+                  <span className="text-[#315BFF]">Clear choices.</span>
+                </h1>
               </div>
+              <div className="lg:col-span-4 pb-2">
+                <p className="font-body-xl text-base sm:text-lg text-[#17243A]/80 leading-relaxed mb-6 font-medium">
+                  Transparent, studio-crafted tier structure for creators, students, couples, and growing enterprises. High-precision engineering and bespoke art direction with absolute cost clarity.
+                </p>
+                <div className="flex flex-wrap items-center gap-4 text-xs font-mono uppercase tracking-wider text-[#17243A]">
+                  <span className="flex items-center gap-1.5 font-bold text-[#17243A]">
+                    <Check size={14} className="text-[#315BFF]" />
+                    Zero Hidden Fees
+                  </span>
+                  <span className="flex items-center gap-1.5 font-bold text-[#17243A]">
+                    <Zap size={14} className="text-[#F08075]" />
+                    Mobile First Layout
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-              {/* Grid of Cards */}
-              <div className="grid gap-6 md:grid-cols-2">
-                {group.items.map((item) => {
-                  const isFeatured =
-                    item.name === "Professional Business Website" ||
-                    item.name === "Online Invitation Website";
+        {/* SECTION 2: INTERACTIVE FILTER TABS */}
+        <section className="w-full px-margin-mobile lg:px-margin py-4">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#F2EFFC] p-3 sm:p-4 rounded-2xl border border-[#17243A]/10">
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 sm:pb-0 sm:flex-wrap" id="tier-filter-buttons">
+              <button
+                type="button"
+                onClick={() => setFilter("all")}
+                className={`shrink-0 px-4 py-2 rounded-full font-label-md text-xs uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap font-bold ${
+                  filter === "all"
+                    ? "bg-[#315BFF] text-white shadow-sm"
+                    : "bg-white hover:bg-white/80 text-[#17243A]"
+                }`}
+              >
+                All Packages (8)
+              </button>
+              <button
+                type="button"
+                onClick={() => setFilter("personal")}
+                className={`shrink-0 px-4 py-2 rounded-full font-label-md text-xs uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap font-bold ${
+                  filter === "personal"
+                    ? "bg-[#F08075] text-white shadow-sm"
+                    : "bg-white hover:bg-white/80 text-[#17243A]"
+                }`}
+              >
+                Personal &amp; Micro (4)
+              </button>
+              <button
+                type="button"
+                onClick={() => setFilter("commercial")}
+                className={`shrink-0 px-4 py-2 rounded-full font-label-md text-xs uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap font-bold ${
+                  filter === "commercial"
+                    ? "bg-[#2EA875] text-white shadow-sm"
+                    : "bg-white hover:bg-white/80 text-[#17243A]"
+                }`}
+              >
+                Business &amp; Commerce (3)
+              </button>
+              <button
+                type="button"
+                onClick={() => setFilter("bespoke")}
+                className={`shrink-0 px-4 py-2 rounded-full font-label-md text-xs uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap font-bold ${
+                  filter === "bespoke"
+                    ? "bg-[#17243A] text-white shadow-sm"
+                    : "bg-white hover:bg-white/80 text-[#17243A]"
+                }`}
+              >
+                Bespoke (1)
+              </button>
+            </div>
 
-                  return (
-                    <article
-                      key={item.name}
-                      className={`group flex flex-col justify-between rounded-xl border p-6 sm:p-8 transition-all duration-300 hover:border-white/30 ${
-                        isFeatured
-                          ? "border-white/25 bg-[#121217] shadow-xl"
-                          : "border-white/[0.08] bg-[#0c0c10] hover:bg-[#111116]"
-                      }`}
-                    >
-                      <div>
-                        {/* Top Index & Badge */}
-                        <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 font-mono text-[10px]">
-                          <span className="text-white/40">{item.number} //</span>
-                          <span className="rounded bg-white/10 px-2.5 py-0.5 text-white/80 uppercase tracking-wider">
-                            {item.badge}
+            <div className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-[#17243A] font-label-sm text-xs uppercase font-bold shrink-0 shadow-2xs">
+              <Sparkles size={14} className="text-[#315BFF]" />
+              <span>Direct WhatsApp &amp; Email Booking</span>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 3: 8 PRICING CARDS */}
+        <section className="w-full px-margin-mobile lg:px-margin py-8 sm:py-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {filteredTiers.map((tier) => {
+                const isDark = tier.isDark || tier.id === "custom-apps" || tier.cardStyle.includes("bg-[#17243A]");
+                return (
+                  <div
+                    key={tier.id}
+                    className={`rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 relative ${tier.cardStyle} shadow-sm hover:shadow-xl hover:-translate-y-1`}
+                  >
+                    <div>
+                      {/* Top Badge */}
+                      <div className="flex items-center justify-between mb-4">
+                        <span
+                          className={`px-3 py-1 rounded-full font-label-sm text-[10px] uppercase font-bold tracking-wider ${tier.badgeStyle}`}
+                        >
+                          {tier.badge}
+                        </span>
+                        <span
+                          className={`material-symbols-outlined text-[18px] ${isDark ? "text-[#DCD9F5]" : tier.priceColor}`}
+                        >
+                          {tier.icon}
+                        </span>
+                      </div>
+
+                      <h2 className={`font-headline-sm text-lg uppercase mb-2 font-extrabold ${isDark ? "text-white" : "text-[#17243A]"}`}>
+                        {tier.title}
+                      </h2>
+                      <p className={`font-body-md text-xs leading-relaxed mb-6 min-h-[36px] ${isDark ? "text-[#FFF9EE]/90" : "text-[#17243A]/75"}`}>
+                        {tier.description}
+                      </p>
+
+                      {/* Pricing Tag */}
+                      <div className={`mb-6 pb-6 border-b ${isDark ? "border-white/15" : "border-[#17243A]/10"}`}>
+                        <span className={`font-label-sm text-[9px] uppercase tracking-wider block mb-1 font-bold ${isDark ? "text-[#DCD9F5]/80" : "text-[#17243A]/60"}`}>
+                          ONE-TIME INVESTMENT
+                        </span>
+                        <div className="flex items-baseline gap-1.5">
+                          <span
+                            className={`font-headline-lg ${isDark ? "text-2xl xs:text-3xl" : "text-3xl"} font-black tracking-tight ${tier.priceColor}`}
+                          >
+                            {tier.price}
+                          </span>
+                          <span className={`text-[10px] font-mono uppercase font-semibold ${isDark ? "text-[#DCD9F5]/90" : "text-[#17243A]/60"}`}>
+                            {tier.priceLabel}
                           </span>
                         </div>
-
-                        {/* Title & Investment */}
-                        <div className="mt-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                          <h2 className="font-syne text-2xl font-bold tracking-tight text-white">
-                            {item.name}
-                          </h2>
-                          <div className="text-left sm:text-right shrink-0">
-                            <span className="font-mono text-[10px] text-white/40 uppercase block">
-                              STARTING AT
-                            </span>
-                            <span className="font-serif text-3xl font-semibold tracking-tight text-white">
-                              {item.price}
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Detail */}
-                        <p className="mt-4 text-xs sm:text-sm leading-relaxed text-white/60 font-sans">
-                          {item.detail}
-                        </p>
-
-                        {/* Turnaround Pill */}
-                        <div className="mt-4 flex items-center gap-2 font-mono text-[11px] text-white/50">
-                          <Clock size={13} className="text-[#d8c3a5]" />
-                          <span>Estimated Turnaround: {item.turnaround}</span>
-                        </div>
-
-                        {/* Deliverables Checklist */}
-                        <div className="mt-6 border-t border-white/[0.06] pt-5">
-                          <p className="font-mono text-[10px] uppercase tracking-wider text-white/40 mb-3">
-                            WHAT IS INCLUDED:
-                          </p>
-                          <ul className="space-y-2 font-mono text-[11px] text-white/70">
-                            {item.deliverables.map((del) => (
-                              <li key={del} className="flex items-start gap-2">
-                                <Check size={13} className="text-white shrink-0 mt-0.5" />
-                                <span>{del}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
                       </div>
 
-                      {/* Card Footer Action */}
-                      <div className="mt-8 border-t border-white/[0.06] pt-5">
-                        <div className="font-mono text-[10px] text-white/40 mb-3">
-                          <span>IDEAL FOR: </span>
-                          <span className="text-white/70">{item.idealFor}</span>
-                        </div>
+                      {/* Deliverables List */}
+                      <ul className="space-y-3 text-xs mb-8">
+                        {tier.deliverables.map((item, dIdx) => (
+                          <li key={dIdx} className="flex items-start gap-2.5">
+                            <Check
+                              size={14}
+                              className={`shrink-0 mt-0.5 ${isDark ? "text-[#DCD9F5]" : tier.priceColor}`}
+                            />
+                            <span className={`font-medium ${isDark ? "text-[#FFF9EE]" : "text-[#17243A]/85"}`}>
+                              {item}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Action Button */}
+                    <a
+                      className={`w-full py-3.5 rounded-full text-center font-label-md text-xs uppercase tracking-wider transition-all inline-flex items-center justify-center gap-1.5 font-bold shadow-xs cursor-pointer ${tier.btnStyle}`}
+                      href={getWhatsAppLink(tier.title, tier.price)}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>{tier.price === "CUSTOM QUOTE" ? "Request Custom Quote" : "Start a Project"}</span>
+                      <ArrowRight size={14} />
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 4: DELIVERABLES AT A GLANCE (COMPARATIVE MATRIX TABLE) */}
+        <section className="w-full px-margin-mobile lg:px-margin py-12 sm:py-20 bg-[#F2EFFC]">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 pb-4 border-b border-[#17243A]/15">
+              <div>
+                <span className="font-label-sm text-xs uppercase tracking-widest text-[#315BFF] block mb-1 font-black">
+                  Comparative Breakdown
+                </span>
+                <h2 className="font-headline-lg text-primary-container">
+                  Deliverables At A Glance
+                </h2>
+              </div>
+              <p className="font-body-md text-sm text-[#17243A]/80 max-w-md mt-3 md:mt-0 font-medium">
+                Compare core parameters across packages to select the tier aligned with your digital launch requirements.
+              </p>
+            </div>
+
+            {/* Mobile Responsive Breakdown Cards (Hidden on md and up) */}
+            <div className="md:hidden flex flex-col gap-4">
+              {pricingTiers.map((tier) => (
+                <div
+                  key={tier.id}
+                  className="rounded-2xl p-5 border border-[#17243A]/10 bg-white shadow-xs"
+                >
+                  <div className="flex items-center justify-between pb-3 border-b border-[#17243A]/10 mb-3">
+                    <div>
+                      <h3 className="font-headline-sm text-base uppercase text-[#17243A] font-bold">
+                        {tier.title}
+                      </h3>
+                      <span className="font-label-sm text-[10px] uppercase text-[#17243A]/60 font-bold tracking-wider">
+                        {tier.badge}
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <div className="font-headline-sm text-base text-[#315BFF] font-black">
+                        {tier.price}
+                      </div>
+                      <span className="text-[9px] font-mono uppercase text-[#17243A]/60 block font-semibold">
+                        {tier.priceLabel}
+                      </span>
+                    </div>
+                  </div>
+
+                  <ul className="space-y-2 text-xs mb-4">
+                    {tier.deliverables.map((item, dIdx) => (
+                      <li key={dIdx} className="flex items-center gap-2 text-[#17243A]/80">
+                        <Check size={13} className="text-[#315BFF] shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    className="w-full py-3 rounded-full text-center font-label-md text-xs uppercase tracking-wider transition-all inline-flex items-center justify-center gap-1.5 font-bold bg-[#17243A] text-white hover:bg-[#315BFF] cursor-pointer"
+                    href={getWhatsAppLink(tier.title, tier.price)}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span>{tier.price === "CUSTOM QUOTE" ? "Request Custom Quote" : "Inquire via WhatsApp"}</span>
+                    <ArrowRight size={13} />
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop Comparison Table (Hidden on mobile) */}
+            <div className="hidden md:block overflow-x-auto rounded-2xl bg-white shadow-sm border border-[#17243A]/10">
+              <table className="w-full text-left border-collapse min-w-[720px]">
+                <thead>
+                  <tr className="bg-[#FAF7F2] text-[#17243A] border-b border-[#17243A]/10">
+                    <th className="p-4 font-label-md text-xs uppercase tracking-wider font-bold">
+                      Service Tier
+                    </th>
+                    <th className="p-4 font-label-md text-xs uppercase tracking-wider font-bold">
+                      Investment
+                    </th>
+                    <th className="p-4 font-label-md text-xs uppercase tracking-wider font-bold">
+                      Core Highlights
+                    </th>
+                    <th className="p-4 font-label-md text-xs uppercase tracking-wider text-center font-bold">
+                      Mobile First
+                    </th>
+                    <th className="p-4 font-label-md text-xs uppercase tracking-wider text-right font-bold">
+                      Transmission
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#17243A]/8 text-xs">
+                  {pricingTiers.map((tier) => (
+                    <tr
+                      key={tier.id}
+                      className="hover:bg-[#F2EFFC]/40 transition-colors"
+                    >
+                      <td className="p-4 font-label-lg text-sm text-[#17243A] font-bold">
+                        <div>{tier.title}</div>
+                        <span className="text-[10px] text-[#17243A]/60 font-semibold uppercase">{tier.badge}</span>
+                      </td>
+                      <td className="p-4 font-headline-sm text-sm text-[#315BFF] font-black">
+                        {tier.price}
+                      </td>
+                      <td className="p-4 text-[#17243A]/80">
+                        {tier.deliverables.slice(0, 2).join(" • ")}
+                      </td>
+                      <td className="p-4 text-[#2EA875] text-center">
+                        <Check size={16} className="mx-auto" />
+                      </td>
+                      <td className="p-4 text-right">
                         <a
-                          href={getWhatsAppLink(item.name)}
+                          href={getWhatsAppLink(tier.title, tier.price)}
                           target="_blank"
                           rel="noreferrer"
-                          className={`flex w-full items-center justify-center gap-2 rounded-sm py-3.5 font-mono text-xs uppercase tracking-[0.16em] transition font-semibold ${
-                            isFeatured
-                              ? "bg-white text-black hover:bg-neutral-200"
-                              : "border border-white/20 bg-white/[0.04] text-white hover:bg-white hover:text-black"
-                          }`}
+                          className="px-4 py-2 rounded-full bg-[#17243A] text-white hover:bg-[#315BFF] transition-colors text-[11px] font-bold uppercase inline-flex items-center gap-1"
                         >
-                          <MessageCircle size={15} />
-                          <span>Inquire on WhatsApp</span>
-                          <ArrowUpRight size={13} />
+                          <span>{tier.price === "CUSTOM QUOTE" ? "Custom Quote" : "Inquire"}</span>
+                          <ArrowRight size={12} />
                         </a>
-                      </div>
-                    </article>
-                  );
-                })}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 5: CRAFTED FOR IMPACT */}
+        <section className="w-full px-margin-mobile lg:px-margin py-16 sm:py-24 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 pb-4 border-b border-[#17243A]/15">
+              <div>
+                <span className="font-label-sm text-xs uppercase tracking-widest text-[#F08075] block mb-1 font-black">
+                  Production Quality
+                </span>
+                <h2 className="font-headline-lg text-primary-container">
+                  Crafted For Impact
+                </h2>
+              </div>
+              <p className="font-body-md text-sm text-[#17243A]/80 max-w-md font-medium">
+                Regardless of the investment tier, every build receives dedicated typography curation, responsive fluid layout mechanics, and strict aesthetic rigor.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+              {/* Card 1 */}
+              <div className="flex flex-col rounded-2xl overflow-hidden bg-[#F2EFFC] shadow-sm hover:shadow-lg transition-all border border-[#17243A]/10 hover:-translate-y-1">
+                <div className="h-56 sm:h-64 overflow-hidden relative">
+                  <Image
+                    src="/stitch-images/stitch4_1.jpg"
+                    alt="Editorial Fluidity design preview"
+                    fill
+                    quality={90}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <span className="font-label-sm text-[10px] uppercase tracking-wider text-[#315BFF] block mb-1 font-black">
+                    Architecture
+                  </span>
+                  <h3 className="font-headline-sm text-lg text-[#17243A] mb-1 font-bold">
+                    Editorial Fluidity
+                  </h3>
+                  <p className="font-body-md text-xs text-[#17243A]/75">
+                    Custom Syne and Plus Jakarta Sans type systems tuned for maximum readability.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 2 */}
+              <div className="flex flex-col rounded-2xl overflow-hidden bg-[#EDF7F2] shadow-sm hover:shadow-lg transition-all border border-[#17243A]/10 hover:-translate-y-1">
+                <div className="h-56 sm:h-64 overflow-hidden relative">
+                  <Image
+                    src="/stitch-images/stitch4_2.jpg"
+                    alt="Mobile Responsiveness preview"
+                    fill
+                    quality={90}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <span className="font-label-sm text-[10px] uppercase tracking-wider text-[#2EA875] block mb-1 font-black">
+                    Engineering
+                  </span>
+                  <h3 className="font-headline-sm text-lg text-[#17243A] mb-1 font-bold">
+                    Mobile Responsiveness
+                  </h3>
+                  <p className="font-body-md text-xs text-[#17243A]/75">
+                    Zero lag, sub-second initial page loads, and seamless interaction across touchscreens.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div className="flex flex-col rounded-2xl overflow-hidden bg-[#FEF9E7] shadow-sm hover:shadow-lg transition-all border border-[#17243A]/10 hover:-translate-y-1">
+                <div className="h-56 sm:h-64 overflow-hidden relative">
+                  <Image
+                    src="/stitch-images/stitch4_3.jpg"
+                    alt="Commercial Conversion preview"
+                    fill
+                    quality={90}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <span className="font-label-sm text-[10px] uppercase tracking-wider text-[#8C6D0A] block mb-1 font-black">
+                    Integration
+                  </span>
+                  <h3 className="font-headline-sm text-lg text-[#17243A] mb-1 font-bold">
+                    Commercial Conversion
+                  </h3>
+                  <p className="font-body-md text-xs text-[#17243A]/75">
+                    Integrated instant UPI/Card gateways and automated direct messaging channels.
+                  </p>
+                </div>
               </div>
             </div>
-          ))}
+          </div>
+        </section>
 
-          {/* Pricing FAQ Section */}
-          <div className="mt-20 border-t border-white/[0.08] pt-16">
-            <div className="mb-10 text-center max-w-xl mx-auto">
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/40 mb-2">
-                TRANSPARENCY &amp; SCOPE
-              </p>
-              <h2 className="font-syne text-2xl sm:text-3xl font-bold text-white uppercase">
-                PRICING &amp; INVESTMENT FAQ
+        {/* SECTION 6: EVERYTHING CLEARLY ANSWERED (FAQ) */}
+        <section className="w-full px-margin-mobile lg:px-margin py-16 sm:py-24 bg-[#FAF9F6] border-t border-[#17243A]/10">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+              <span className="font-label-sm text-xs uppercase tracking-widest text-[#315BFF] block mb-1 font-black">
+                Questions &amp; Answers
+              </span>
+              <h2 className="font-headline-lg text-primary-container mb-2">
+                Everything clearly answered.
               </h2>
+              <p className="font-body-md text-sm text-[#17243A]/80 font-medium">
+                No vague policies. Here is exactly how we deliver each project.
+              </p>
             </div>
 
-            <div className="mx-auto max-w-3xl divide-y divide-white/[0.08] border-y border-white/[0.08]">
-              {pricingFaqs.map((faq, idx) => {
+            <div className="flex flex-col gap-3 sm:gap-4">
+              {pricingFaqData.map((faq, idx) => {
                 const isOpen = openFaq === idx;
                 return (
-                  <div key={faq.q} className="py-5">
+                  <div
+                    key={idx}
+                    className="rounded-2xl bg-white p-5 sm:p-6 transition-all border border-[#17243A]/10 shadow-xs hover:shadow-md"
+                  >
                     <button
-                      onClick={() => setOpenFaq(isOpen ? null : idx)}
-                      className="flex w-full items-center justify-between text-left group"
+                      className="w-full flex items-center justify-between text-left cursor-pointer focus:outline-none"
+                      onClick={() => toggleFaq(idx)}
+                      aria-expanded={isOpen}
                     >
-                      <span className="font-syne text-base font-semibold text-white group-hover:text-neutral-200 transition">
+                      <h3 className="font-headline-sm text-sm sm:text-base uppercase text-[#17243A] pr-4 font-bold">
                         {faq.q}
-                      </span>
-                      <span className="ml-4 flex h-6 w-6 items-center justify-center rounded-full border border-white/10 text-white/60 transition group-hover:text-white shrink-0">
-                        <ChevronDown
-                          size={14}
-                          className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-                        />
-                      </span>
+                      </h3>
+                      <ChevronDown
+                        size={20}
+                        className={`text-[#315BFF] shrink-0 transition-transform duration-200 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
                     </button>
                     {isOpen && (
-                      <p className="mt-3 text-xs sm:text-sm leading-relaxed text-white/65 font-sans">
+                      <div className="mt-4 pt-4 border-t border-[#17243A]/10 text-xs sm:text-sm text-[#17243A]/80 leading-relaxed animate-in fade-in duration-200">
                         {faq.a}
-                      </p>
+                      </div>
                     )}
                   </div>
                 );
               })}
             </div>
           </div>
+        </section>
 
-          {/* Bottom WhatsApp Discussion Callout */}
-          <div className="rounded-xl border border-white/[0.1] bg-[#111116] p-7 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="font-syne text-2xl font-bold text-white">
-                Ready to confirm your timeline and scope?
-              </h3>
-              <p className="mt-1 text-xs sm:text-sm text-white/60 font-sans max-w-xl">
-                Send a quick WhatsApp message with your project goals or inspiration links. We will review your brief and share a clear scope outline within hours.
+        {/* SECTION 7: FINAL CTA (DEEP NAVY) */}
+        <section className="w-full px-margin-mobile lg:px-margin py-16 sm:py-24">
+          <div className="max-w-7xl mx-auto rounded-3xl bg-[#17243A] text-white p-8 lg:p-16 relative overflow-hidden shadow-2xl border-2 border-[#315BFF]">
+            <div className="relative z-10 max-w-3xl">
+              <span className="font-label-sm text-xs uppercase tracking-widest text-[#F08075] block mb-3 font-black">
+                COMMENCE YOUR PROJECT
+              </span>
+              <h2 className="text-[32px] xs:text-4xl sm:text-5xl lg:text-7xl font-extrabold uppercase text-white tracking-tight leading-[1.05] mb-6 font-syne">
+                LET&apos;S MAKE
+                <br />
+                <span className="text-[#315BFF]">SOMETHING</span>{" "}
+                <span className="text-[#F08075]">GREAT.</span>
+              </h2>
+              <p className="font-body-xl text-sm sm:text-base text-[#DCD9F5] leading-relaxed mb-8 max-w-xl">
+                Have questions or ready to launch? Speak directly with our creative team. No automated bots—just thoughtful creators ready to build.
               </p>
-            </div>
-            <a
-              href={`https://wa.me/${WHATSAPP_NUM}?text=Hi%20WEBLY!%20I%20am%20ready%20to%20discuss%20my%20website%20project%20scope.`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-sm bg-white px-7 py-3.5 font-mono text-xs uppercase tracking-wider font-semibold text-black transition hover:bg-neutral-200 shrink-0"
-            >
-              <MessageCircle size={15} />
-              <span>Open WhatsApp Conversation</span>
-              <ArrowRight size={14} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          PRICING FOOTER
-      ========================================================================= */}
-      <footer className="bg-[#000000] text-white px-5 sm:px-8 lg:px-12 py-16 sm:py-20 border-t border-white/[0.08]">
-        <div className="mx-auto max-w-[1440px]">
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 pb-12 border-b border-white/[0.08]">
-            <div className="space-y-4">
-              <Link href="/">
-                <Image
-                  src="/webly-logo.png"
-                  alt="WEBLY"
-                  width={130}
-                  height={45}
-                  className="h-8 w-auto object-contain"
-                />
-              </Link>
-              <p className="text-xs text-white/50 leading-relaxed max-w-sm font-sans">
-                Bespoke web design and development for visionary individuals, celebrations, and modern enterprises.
-              </p>
-            </div>
-
-            <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/40 mb-3">
-                DIRECT TRANSMISSION
-              </p>
-              <div className="space-y-2 font-mono text-xs text-white/70">
-                <p>
-                  WhatsApp Consultation:{" "}
-                  <a
-                    href={`https://wa.me/${WHATSAPP_NUM}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-white hover:underline ml-1"
-                  >
-                    {WHATSAPP_DISPLAY}
-                  </a>
-                </p>
-                <p>
-                  Electronic Mail:{" "}
-                  <a
-                    href={`mailto:${STUDIO_EMAIL}`}
-                    className="text-white hover:underline ml-1"
-                  >
-                    {STUDIO_EMAIL}
-                  </a>
-                </p>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+                <a
+                  className="px-8 py-4 min-h-[48px] rounded-full bg-[#315BFF] hover:bg-white hover:text-[#17243A] text-white font-label-md text-xs sm:text-sm uppercase tracking-wider font-bold transition-all shadow-lg inline-flex items-center justify-center gap-2 text-center cursor-pointer"
+                  href="https://wa.me/916379290968?text=Hello%20Webly%20Studio,%20I%20am%20ready%20to%20start%20my%20project."
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span>Start Your Project</span>
+                  <ArrowRight size={14} />
+                </a>
+                <a
+                  className="px-8 py-4 min-h-[48px] rounded-full bg-white/10 hover:bg-white/20 text-white font-label-md text-xs sm:text-sm uppercase tracking-wider transition-all font-semibold inline-flex items-center justify-center text-center cursor-pointer border border-white/20"
+                  href="mailto:webly.studioservice@gmail.com"
+                >
+                  Email Studio
+                </a>
               </div>
             </div>
 
-            <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/40 mb-3">
-                QUICK ACCESS
-              </p>
-              <ul className="space-y-2 font-mono text-xs text-white/60">
-                <li>
-                  <Link href="/#work" className="hover:text-white transition">
-                    Selected Work
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#services" className="hover:text-white transition">
-                    Studio Disciplines
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="hover:text-white transition">
-                    Return to Homepage ↑
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            {/* Subtle background glows */}
+            <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-[#315BFF]/25 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-20 -left-20 w-80 h-80 bg-[#F08075]/20 rounded-full blur-3xl pointer-events-none" />
           </div>
+        </section>
+      </main>
 
-          {/* Massive Outlined Watermark Typography */}
-          <div className="relative py-12 select-none overflow-hidden text-center">
-            <p className="font-syne text-[80px] sm:text-[140px] md:text-[200px] font-black tracking-tighter uppercase leading-none text-stroke-watermark pointer-events-none">
-              WEBLY
-            </p>
-          </div>
+      {/* Brand Footer */}
+      <BrandFooter />
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[10px] text-white/40">
-            <p>© 2025 WEBLY Studio. All rights reserved.</p>
-            <div className="flex items-center gap-4">
-              <span>DIGITAL ATELIER</span>
-              <span className="h-1 w-1 rounded-full bg-white/20" />
-              <span>CHENNAI · REMOTE WORLDWIDE</span>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </main>
+      {/* Mobile Bottom Navigation */}
+      <MobileBottomNav />
+    </div>
   );
 }
